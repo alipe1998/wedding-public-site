@@ -31,7 +31,7 @@
     body::after{content:none}
     .wrap{
       --shell-pad-inline: clamp(16px, 3vw, 48px);
-      --banner-col: clamp(90px, 10vw, 180px);
+      --banner-col: clamp(108px, 12vw, 216px);
       --shell-gap: clamp(12px, 2vw, 28px);
       margin:0;
       padding:0 var(--shell-pad-inline);
@@ -74,7 +74,7 @@
       z-index:1;
       overflow:hidden;
       width:100%;
-      max-width:1100px;
+      max-width:1320px;
       min-width:0;
       min-height:100vh;
       grid-column:2;
@@ -119,6 +119,85 @@
       right:26px;
       z-index:3;
       text-align:center;
+    }
+    .hero-date{
+      margin:.15rem 0 0;
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:clamp(20px, 2.5vw, 34px);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(255,244,230,.92);
+      text-shadow:0 2px 10px rgba(0,0,0,.28);
+    }
+    .hero-countdown{
+      position:absolute;
+      left:24px;
+      right:24px;
+      bottom:104px;
+      z-index:3;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .countdown-chip{
+      min-width:88px;
+      padding:12px 14px 10px;
+      border:1px solid rgba(255,255,255,.52);
+      background:rgba(28,20,16,.28);
+      color:#fff;
+      text-align:center;
+      backdrop-filter:blur(8px);
+      box-shadow:0 12px 24px rgba(0,0,0,.16);
+    }
+    .countdown-value{
+      display:block;
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:34px;
+      line-height:1;
+      font-weight:600;
+    }
+    .countdown-label{
+      display:block;
+      margin-top:4px;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.82;
+    }
+    .hero-nav{
+      position:absolute;
+      left:24px;
+      right:24px;
+      bottom:22px;
+      z-index:3;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+    }
+    .hero-nav-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:164px;
+      padding:.92rem 1.35rem;
+      border:1px solid rgba(255,255,255,.78);
+      background:rgba(248,239,227,.18);
+      color:#fff;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:14px;
+      font-weight:700;
+      backdrop-filter:blur(8px);
+      box-shadow:0 10px 24px rgba(0,0,0,.18);
+      transition:background-color .18s ease, transform .18s ease, border-color .18s ease;
+    }
+    .hero-nav-link:hover{
+      background:rgba(248,239,227,.28);
+      border-color:#fff;
+      transform:translateY(-1px);
     }
     h1,h2{font-family:"Cormorant Garamond",Georgia,serif;letter-spacing:.01em;margin:.2rem 0;color:#000}
     h1{font-size:40px;font-family:"Great Vibes",cursive;font-weight:400;line-height:1.1}
@@ -177,7 +256,7 @@
 
     @media (max-width: 1500px){
       .wrap{
-        --banner-col: clamp(72px, 8vw, 132px);
+        --banner-col: clamp(86px, 9.6vw, 158px);
         --shell-gap: clamp(10px, 1.6vw, 20px);
         --shell-pad-inline: clamp(14px, 2.4vw, 32px);
       }
@@ -210,6 +289,32 @@
         top:20px;
         left:18px;
         right:18px;
+      }
+      .hero-date{
+        letter-spacing:.14em;
+      }
+      .hero-countdown{
+        left:18px;
+        right:18px;
+        bottom:104px;
+        gap:8px;
+      }
+      .countdown-chip{
+        min-width:78px;
+        padding:10px 12px 8px;
+      }
+      .countdown-value{
+        font-size:28px;
+      }
+      .hero-nav{
+        left:18px;
+        right:18px;
+        bottom:18px;
+        gap:10px;
+      }
+      .hero-nav-link{
+        min-width:146px;
+        padding:.84rem 1.15rem;
       }
       .couple-names{
         font-size:56px;
@@ -245,6 +350,37 @@
         left:14px;
         right:14px;
       }
+      .hero-date{
+        font-size:18px;
+        letter-spacing:.12em;
+      }
+      .hero-countdown{
+        left:14px;
+        right:14px;
+        bottom:114px;
+        gap:6px;
+      }
+      .countdown-chip{
+        min-width:calc(50% - 6px);
+        padding:9px 10px 7px;
+      }
+      .countdown-value{
+        font-size:24px;
+      }
+      .countdown-label{
+        font-size:10px;
+      }
+      .hero-nav{
+        left:14px;
+        right:14px;
+        bottom:14px;
+        gap:8px;
+      }
+      .hero-nav-link{
+        min-width:calc(50% - 8px);
+        font-size:12px;
+        padding:.78rem .95rem;
+      }
       .couple-names{
         font-size:42px;
       }
@@ -278,20 +414,46 @@
         <div class="hero-overlay"></div>
         <div class="hero-title">
           <p class="muted couple-names">Nuestra Boda Victoria & Austin</p>
+          <p class="hero-date">May 29, 2027 • Aguascalientes, Mexico</p>
         </div>
+        <div class="hero-countdown" id="hero-countdown" aria-label="Countdown to wedding day">
+          <div class="countdown-chip">
+            <span class="countdown-value" id="countdown-days">000</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-chip">
+            <span class="countdown-value" id="countdown-hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-chip">
+            <span class="countdown-value" id="countdown-minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-chip">
+            <span class="countdown-value" id="countdown-seconds">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+        <nav class="hero-nav" aria-label="Wedding page sections">
+          <a class="hero-nav-link" href="/wedding/gallery/">Gallery</a>
+          <a class="hero-nav-link" href="#travel-notes">Travel</a>
+          <a class="hero-nav-link" href="#wedding-weekend">Weekend</a>
+          <a class="hero-nav-link" href="#registry">Registry</a>
+          <a class="hero-nav-link" href="#rsvp">RSVP</a>
+        </nav>
       </div>
 
       <p class="date-line"><strong>May 29th, 2027</strong> • Aguascalientes, Ags. Mexico</p>
       <p class="muted">We’re so excited to celebrate with you. This page has the latest updates for the wedding and Aguascalientes travel details.</p>
 
-      <h2>Aguascalientes Travel Notes</h2>
+      <h2 id="travel-notes">Aguascalientes Travel Notes</h2>
       <ul>
         <li>Airport: Aguascalientes Aguascalientes Mexico airport</li>
         <li>Transportation: Uber/taxi available in most areas</li>
         <li>Weather: warm days and cooler evenings — bring layers</li>
       </ul>
 
-      <h2>Wedding Weekend</h2>
+      <h2 id="wedding-weekend">Wedding Weekend</h2>
       <ul>
         <li>Friday: Welcome time</li>
         <li>Saturday: Ceremony + Reception</li>
@@ -299,11 +461,11 @@
       </ul>
       <p class="muted">Final times and addresses will be shared directly with guests.</p>
 
-      <h2>Registry</h2>
+      <h2 id="registry">Registry</h2>
       <p>Your presence is the greatest gift, but if you'd like to bless us with something, you can use our Amazon registry:</p>
       <p><a href="https://www.amazon.com/wedding/guest-view/3TPUBBZJK6UXY" target="_blank" rel="noreferrer">View Victoria & Austin's Amazon Wedding Registry</a></p>
 
-      <h2>RSVP</h2>
+      <h2 id="rsvp">RSVP</h2>
       <p>Please use your personalized RSVP link from Victoria or Austin.</p>
     </section>
   </main>
@@ -323,6 +485,44 @@ const headers = { apikey: ANON_KEY, Authorization: `Bearer ${ANON_KEY}` };
 
 function qs(id){ return document.getElementById(id) }
 function showRsvp(){ qs('public-view').classList.add('hidden'); qs('rsvp-view').classList.remove('hidden'); }
+
+function initCountdown(){
+  const countdown = qs('hero-countdown');
+  if (!countdown) return;
+
+  const daysEl = qs('countdown-days');
+  const hoursEl = qs('countdown-hours');
+  const minutesEl = qs('countdown-minutes');
+  const secondsEl = qs('countdown-seconds');
+  const targetDate = new Date('2027-05-29T12:00:00-06:00');
+
+  function updateCountdown(){
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      daysEl.textContent = '000';
+      hoursEl.textContent = '00';
+      minutesEl.textContent = '00';
+      secondsEl.textContent = '00';
+      return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    daysEl.textContent = String(days).padStart(3, '0');
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  window.setInterval(updateCountdown, 1000);
+}
 
 async function initRsvp(token){
   showRsvp();
@@ -417,6 +617,7 @@ const url = new URL(window.location.href);
 const queryToken = url.searchParams.get('token');
 const path = window.location.pathname;
 const marker = '/wedding/rsvp/';
+initCountdown();
 if (queryToken) {
   initRsvp(queryToken);
 } else if (path.includes(marker)) {
