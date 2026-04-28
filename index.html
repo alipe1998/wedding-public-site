@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Victoria & Austin Wedding</title>
+  <style>
+    :root{
+      --terracotta:#b65a3a;
+      --coral:#d9785f;
+      --turquoise:#2f8f95;
+      --deep-green:#285744;
+      --marigold:#d89a2b;
+      --cream:#f8efe3;
+      --sand:#efdfcf;
+      --ink:#000000;
+      --muted:#6f6259;
+    }
+    *, *::before, *::after{box-sizing:border-box}
+    img, video{max-width:100%;height:auto;display:block}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      margin:0;color:var(--ink);
+      background: linear-gradient(180deg, #fbf3e8 0%, #f8efe3 100%);
+      position:relative;
+    }
+    body::before,
+    body::after{content:none}
+    .wrap{
+      --shell-pad-inline: clamp(16px, 3vw, 48px);
+      --banner-col: clamp(90px, 10vw, 180px);
+      --shell-gap: clamp(12px, 2vw, 28px);
+      margin:0;
+      padding:0 var(--shell-pad-inline);
+      position:relative;
+      z-index:1;
+      width:100%;
+      min-height:100vh;
+      display:grid;
+      grid-template-columns: var(--banner-col) minmax(0, 1fr) var(--banner-col);
+      gap: var(--shell-gap);
+      justify-content:center;
+      align-items:stretch;
+      box-sizing:border-box;
+    }
+    .wrap::before,
+    .wrap::after{
+      content:"";
+      display:block;
+      align-self:stretch;
+      min-height:100%;
+      background-image:url('/wedding/assets/wedding-side-rotated.jpg');
+      background-repeat:repeat-y;
+      background-size:118% auto;
+      background-position:center top;
+      opacity:.96;
+      pointer-events:none;
+    }
+    .wrap::before{grid-column:1}
+    .wrap::after{grid-column:3}
+    .card{
+      --card-pad-y: clamp(24px, 3vw, 30px);
+      --card-pad-x: clamp(20px, 3vw, 36px);
+      background:rgba(255,253,249,.92);
+      border:1px solid var(--sand);
+      border-radius:0;
+      padding:var(--card-pad-y) var(--card-pad-x);
+      margin:0;
+      box-shadow:none;
+      position:relative;
+      z-index:1;
+      overflow:hidden;
+      width:100%;
+      max-width:1100px;
+      min-width:0;
+      min-height:100vh;
+      grid-column:2;
+      justify-self:center;
+    }
+    .card::before{
+      content:"";
+      position:absolute;inset:auto 0 0 0;height:4px;
+      background:linear-gradient(90deg,var(--terracotta),var(--marigold),var(--turquoise),var(--deep-green));
+      opacity:.85;
+    }
+    .hero-carousel{
+      position:relative;
+      width:calc(100% + (var(--card-pad-x) * 2));
+      margin: calc(var(--card-pad-y) * -1) calc(var(--card-pad-x) * -1) 18px;
+      height:min(52vh, 520px);
+      overflow:hidden;
+      border-bottom:1px solid var(--sand);
+      background:#e8dacb;
+    }
+    .hero-slide{
+      position:absolute;
+      inset:0;
+      opacity:1;
+    }
+    .hero-slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.08) 35%, rgba(0,0,0,.30) 100%);
+      pointer-events:none;
+    }
+    .hero-title{
+      position:absolute;
+      top:24px;
+      left:26px;
+      right:26px;
+      z-index:3;
+      text-align:center;
+    }
+    h1,h2{font-family:"Cormorant Garamond",Georgia,serif;letter-spacing:.01em;margin:.2rem 0;color:#000}
+    h1{font-size:40px;font-family:"Great Vibes",cursive;font-weight:400;line-height:1.1}
+    h2{font-size:35px}
+    .muted{color:var(--muted)}
+    .couple-names{
+      font-family:"Great Vibes",cursive;
+      font-size:68px;
+      font-weight:700;
+      line-height:1.05;
+      letter-spacing:.01em;
+      color:#000;
+      margin:0 0 .35rem;
+      text-shadow:
+        0.45px 0 #5a3428,
+        -0.45px 0 #5a3428,
+        0 0.45px #5a3428,
+        0 -0.45px #5a3428;
+    }
+    .hero-title .couple-names{
+      color:#fff;
+      text-shadow:0 2px 8px rgba(0,0,0,.35);
+    }
+    p, li{font-size:20px}
+    ul{line-height:1.65;padding-left:1.25rem}
+    li{margin-bottom:.35rem}
+    a{overflow-wrap:anywhere}
+    .hidden{display:none}
+    .section-divider{
+      height:14px;margin:-2px 0 12px;
+      background:
+        linear-gradient(135deg, rgba(182,90,58,.22) 25%, transparent 25%) 0 0/16px 16px,
+        linear-gradient(225deg, rgba(47,143,149,.22) 25%, transparent 25%) 0 0/16px 16px;
+      border-radius:999px;
+      opacity:.75;
+    }
+    .guest-row{margin-bottom:12px;padding:12px;border:1px solid #eadccf;border-radius:12px;background:#fffcf9}
+    .guest-label{display:block;margin-bottom:8px}
+    .select-wrap{position:relative;max-width:300px}
+    .select-wrap::after{content:'▾';position:absolute;right:12px;top:50%;transform:translateY(-52%);color:var(--terracotta);pointer-events:none;font-size:14px}
+    select{
+      width:100%;padding:.7rem 1rem;border-radius:12px;border:1px solid #d8c1ac;background:#fff;
+      appearance:none;-webkit-appearance:none;-moz-appearance:none;
+      font-weight:600;color:#4a3a30;box-shadow:inset 0 1px 2px rgba(0,0,0,.03)
+    }
+    select:focus{outline:none;border-color:var(--turquoise);box-shadow:0 0 0 3px rgba(47,143,149,.18)}
+    button{padding:.62rem 1rem;border-radius:999px;border:1px solid var(--terracotta);background:linear-gradient(90deg,var(--terracotta),var(--coral));color:#fff;cursor:pointer;font-weight:700;letter-spacing:.01em}
+    button:hover{filter:brightness(1.05)}
+    .status-note{margin-top:12px;padding:12px;border-radius:12px;border:1px solid #eadccf;background:#fff8f2}
+    .status-note.success{border-color:#b6d7c1;background:#eef9f1;color:var(--deep-green)}
+    .status-note.soft{border-color:#efcf9a;background:#fff6e7;color:#7a5a24}
+    .date-line{font-size:28px;text-align:center;margin:14px 0 12px}
+    .quick-link{display:inline-block;margin-top:10px;color:var(--terracotta);font-weight:700;text-decoration:none}
+    .quick-link:hover{text-decoration:underline}
+    a{color:var(--turquoise)}
+
+    @media (max-width: 1500px){
+      .wrap{
+        --banner-col: clamp(72px, 8vw, 132px);
+        --shell-gap: clamp(10px, 1.6vw, 20px);
+        --shell-pad-inline: clamp(14px, 2.4vw, 32px);
+      }
+      .wrap::before,
+      .wrap::after{
+        background-size:114% auto;
+        opacity:.9;
+      }
+    }
+
+    @media (max-width: 1220px){
+      .wrap{
+        grid-template-columns: minmax(0, 1fr);
+        --shell-pad-inline: clamp(12px, 2.6vw, 24px);
+      }
+      .wrap::before,
+      .wrap::after{
+        content:none;
+      }
+      .card{
+        max-width:none;
+      }
+    }
+
+    @media (max-width: 900px){
+      .hero-carousel{
+        height:min(44vh, 420px);
+      }
+      .hero-title{
+        top:20px;
+        left:18px;
+        right:18px;
+      }
+      .couple-names{
+        font-size:56px;
+      }
+      h2{font-size:30px}
+      .date-line{font-size:24px}
+      p, li{font-size:18px}
+    }
+
+    @media (max-width: 640px){
+      body{
+        background: linear-gradient(180deg, #fcf6ed 0%, #f8efe3 100%);
+      }
+      .wrap{
+        --shell-pad-inline: 0px;
+        --shell-gap: 0px;
+      }
+      .card{
+        --card-pad-y: 16px;
+        --card-pad-x: 14px;
+        min-height:auto;
+        border-left:0;
+        border-right:0;
+      }
+      .hero-carousel{
+        width:calc(100% + (var(--card-pad-x) * 2));
+        margin: calc(var(--card-pad-y) * -1) calc(var(--card-pad-x) * -1) 14px;
+        height:min(34vh, 320px);
+        min-height:220px;
+      }
+      .hero-title{
+        top:16px;
+        left:14px;
+        right:14px;
+      }
+      .couple-names{
+        font-size:42px;
+      }
+      h1{font-size:32px}
+      h2{font-size:26px}
+      .date-line{
+        font-size:20px;
+        line-height:1.25;
+      }
+      p, li{font-size:17px}
+      .select-wrap{max-width:none}
+      button{
+        width:100%;
+        padding:.8rem 1rem;
+      }
+      .guest-row{
+        padding:10px;
+        border-radius:10px;
+      }
+      .status-note{
+        padding:10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" id="public-view">
+    <section class="card">
+      <div class="hero-carousel" id="hero-carousel">
+        <div class="hero-slide"><img src="/wedding/assets/hero-main.jpg" alt="Romantic wedding table setting" /></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-title">
+          <p class="muted couple-names">Nuestra Boda Victoria & Austin</p>
+        </div>
+      </div>
+
+      <p class="date-line"><strong>May 29th, 2027</strong> • Aguascalientes, Ags. Mexico</p>
+      <p class="muted">We’re so excited to celebrate with you. This page has the latest updates for the wedding and Aguascalientes travel details.</p>
+
+      <h2>Aguascalientes Travel Notes</h2>
+      <ul>
+        <li>Airport: Aguascalientes Aguascalientes Mexico airport</li>
+        <li>Transportation: Uber/taxi available in most areas</li>
+        <li>Weather: warm days and cooler evenings — bring layers</li>
+      </ul>
+
+      <h2>Wedding Weekend</h2>
+      <ul>
+        <li>Friday: Welcome time</li>
+        <li>Saturday: Ceremony + Reception</li>
+        <li>Sunday: Farewell brunch</li>
+      </ul>
+      <p class="muted">Final times and addresses will be shared directly with guests.</p>
+
+      <h2>Registry</h2>
+      <p>Your presence is the greatest gift, but if you'd like to bless us with something, you can use our Amazon registry:</p>
+      <p><a href="https://www.amazon.com/wedding/guest-view/3TPUBBZJK6UXY" target="_blank" rel="noreferrer">View Victoria & Austin's Amazon Wedding Registry</a></p>
+
+      <h2>RSVP</h2>
+      <p>Please use your personalized RSVP link from Victoria or Austin.</p>
+    </section>
+  </main>
+
+  <main class="wrap hidden" id="rsvp-view">
+    <section class="card">
+      <h1 id="rsvp-title">RSVP</h1>
+      <p class="muted" id="rsvp-sub">Loading your invite...</p>
+      <form id="rsvp-form" class="hidden"></form>
+    </section>
+  </main>
+
+<script>
+const SUPABASE_URL = 'https://lipeclan.com/supabase';
+const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlzcyI6InN1cGFiYXNlIiwiaWF0IjoxNzc0NDYxNDQzLCJleHAiOjE5MzIxNDE0NDN9.PetEhxDTubgy4EIWehxBxYNC1fbKDBl0LJXBaXVXuSQ';
+const headers = { apikey: ANON_KEY, Authorization: `Bearer ${ANON_KEY}` };
+
+function qs(id){ return document.getElementById(id) }
+function showRsvp(){ qs('public-view').classList.add('hidden'); qs('rsvp-view').classList.remove('hidden'); }
+
+async function initRsvp(token){
+  showRsvp();
+  const sub = qs('rsvp-sub');
+  try {
+    const inviteRes = await fetch(`${SUPABASE_URL}/rest/v1/invite_tokens?token=eq.${encodeURIComponent(token)}&select=token,household_id,household_name,group_id,group_name,active&limit=1`, { headers });
+    const inviteData = await inviteRes.json();
+    const invite = inviteData[0];
+    if (!invite || invite.active === false) throw new Error('Invalid or inactive RSVP link.');
+
+    const householdId = invite.household_id || invite.group_id;
+    const householdName = invite.household_name || invite.group_name || 'Your Household';
+    if (!householdId) throw new Error('This invite is missing a household assignment.');
+
+    qs('rsvp-title').textContent = `RSVP • ${householdName}`;
+
+    const guestsRes = await fetch(`${SUPABASE_URL}/rest/v1/guests?household_id=eq.${encodeURIComponent(householdId)}&select=id,full_name&order=id.asc`, { headers });
+    const guests = await guestsRes.json();
+    if (!guests.length) throw new Error('No guests found for this invite.');
+
+    const rsvpRes = await fetch(`${SUPABASE_URL}/rest/v1/rsvps?select=guest_id,status&guest_id=in.(${guests.map(g=>g.id).join(',')})`, { headers });
+    const existing = await rsvpRes.json();
+    const existingMap = Object.fromEntries(existing.map(r => [r.guest_id, r.status]));
+
+    const form = qs('rsvp-form');
+    form.innerHTML = '';
+
+    guests.forEach(g => {
+      const wrap = document.createElement('div');
+      wrap.className = 'guest-row';
+      wrap.innerHTML = `<label class="guest-label"><strong>${g.full_name}</strong></label>
+        <div class="select-wrap">
+          <select name="${g.id}">
+            <option value="Pending">Still deciding</option>
+            <option value="Yes">Yes, attending 🎉</option>
+            <option value="No">No, can't attend</option>
+          </select>
+        </div>`;
+      form.appendChild(wrap);
+      wrap.querySelector('select').value = existingMap[g.id] || 'Pending';
+    });
+
+    const btn = document.createElement('button');
+    btn.type = 'submit';
+    btn.textContent = 'Save RSVP';
+    form.appendChild(btn);
+
+    const msg = document.createElement('div');
+    msg.className = 'status-note hidden';
+    form.appendChild(msg);
+
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+      const rows = guests.map(g => {
+        const value = form.querySelector(`select[name="${g.id}"]`).value;
+        return { guest_id: g.id, status: value, response_status: value, meal_choice: 'Pending' };
+      });
+      const save = await fetch(`${SUPABASE_URL}/rest/v1/rsvps`, {
+        method: 'POST',
+        headers: { ...headers, 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' },
+        body: JSON.stringify(rows)
+      });
+      if (!save.ok) {
+        msg.className = 'status-note soft';
+        msg.innerHTML = 'Could not save RSVP right now. Please try again in a moment.';
+        return;
+      }
+
+      const yesCount = rows.filter(r => r.status === 'Yes').length;
+      const noCount = rows.filter(r => r.status === 'No').length;
+
+      if (yesCount > 0) {
+        msg.className = 'status-note success';
+        msg.innerHTML = `Amazing — we can’t wait to celebrate with you! 🎉<br/>For the latest wedding updates and Aguascalientes travel info, use the Wedding Home Page.<br/><a class="quick-link" href="/wedding/">Go to the Wedding Home Page →</a>`;
+      } else if (noCount > 0) {
+        msg.className = 'status-note soft';
+        msg.innerHTML = `We’ll miss you and appreciate you letting us know 💛<br/><a class="quick-link" href="/wedding/">Wedding updates and details →</a>`;
+      } else {
+        msg.className = 'status-note';
+        msg.innerHTML = `Saved! You can update your RSVP anytime from this same link.<br/><a class="quick-link" href="/wedding/">Wedding home page →</a>`;
+      }
+    };
+
+    form.classList.remove('hidden');
+    sub.textContent = 'Please submit one response per person listed below. The Wedding Home Page has the latest updates on the wedding and Aguascalientes travel details.';
+  } catch (err) {
+    sub.textContent = err.message || 'Could not load RSVP.';
+  }
+}
+
+const url = new URL(window.location.href);
+const queryToken = url.searchParams.get('token');
+const path = window.location.pathname;
+const marker = '/wedding/rsvp/';
+if (queryToken) {
+  initRsvp(queryToken);
+} else if (path.includes(marker)) {
+  const token = path.split(marker)[1].replace(/\/$/, '');
+  if (token) initRsvp(token);
+}
+</script>
+</body>
+</html>
