@@ -2,7 +2,14 @@
 
 This is the plain static public site, not the React planner app.
 
-Routine deploys should go through GitHub Actions. Manual SSH copy is the fallback path only.
+Primary deployment path: GitHub Actions on pushes to `main`.
+
+Default rule for any agent or maintainer working in this repo:
+
+- Deploy by pushing to GitHub.
+- Let `.github/workflows/deploy.yml` publish the site.
+- Do not use manual SSH or `rsync` for routine production deploys.
+- Use the manual path only when GitHub Actions is unavailable or broken.
 
 ## Source Files
 
@@ -32,6 +39,14 @@ The repo uses two GitHub Actions workflows:
   - verifies the public URL with `curl -I`
 
 `rsync --delete` is intentional. It removes files from the server that no longer exist in the repo so the deployed directory stays in sync with Git.
+
+## Operational Rule
+
+For routine changes, treat GitHub Actions as the source of truth for production deployment.
+
+- Preferred deploy path: merge or push to `main`
+- Preferred verification path: check the Actions run, then verify `https://lipeclan.com/wedding/`
+- Fallback only: manual SSH deploy from a local machine
 
 ## GitHub Secrets
 
