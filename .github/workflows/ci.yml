@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: public-site-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify required site files
+        run: |
+          test -f index.html
+          test -f gallery/index.html
+          test -f gallery/gallery-data.js
+          test -d assets
+          test -d assets/gallery
+
+      - name: Verify expected public paths
+        run: |
+          grep -q '/wedding/assets/' index.html
+          grep -q '/wedding/assets/' gallery/index.html
+          grep -q '/wedding/assets/gallery/' gallery/gallery-data.js
