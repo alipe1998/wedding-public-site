@@ -56,6 +56,52 @@
       text-transform:uppercase;
       font-size:13px;
     }
+    .topbar-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .language-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .language-toggle-label{
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    .language-toggle-flag{
+      display:inline-flex;
+      align-items:center;
+      margin-left:6px;
+      font-size:14px;
+      line-height:1;
+    }
+    .language-toggle-buttons{
+      display:inline-flex;
+      border:1px solid rgba(182,90,58,.28);
+      background:rgba(255,255,255,.78);
+    }
+    .language-toggle button{
+      border:0;
+      background:transparent;
+      color:var(--muted);
+      padding:.55rem .75rem;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
+    .language-toggle button.is-active{
+      background:var(--terracotta);
+      color:#fff8f2;
+    }
     .hero{
       position:relative;
       overflow:hidden;
@@ -231,6 +277,14 @@
         width:min(100%, calc(100% - 16px));
         padding-top:12px;
       }
+      .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+      .topbar-actions{
+        width:100%;
+        justify-content:space-between;
+      }
       .gallery-section{
         padding:18px;
       }
@@ -245,26 +299,36 @@
     }
   </style>
 </head>
-<body>
+<body data-title-key="common.documentTitleGallery">
   <div class="page">
     <div class="topbar">
-      <a href="/wedding/">Back To Wedding Home</a>
-      <span>Victoria & Austin</span>
+      <a href="/wedding/" data-i18n="gallery.topbarBack">Back To Wedding Home</a>
+      <div class="topbar-actions">
+        <div class="language-toggle" data-language-toggle>
+          <span class="language-toggle-label" data-i18n="common.languageLabel">Language</span>
+          <span class="language-toggle-flag" data-language-flag aria-hidden="true">🇺🇸</span>
+          <div class="language-toggle-buttons">
+            <button type="button" data-lang="en" data-i18n="common.languageEnglish">English</button>
+            <button type="button" data-lang="es" data-i18n="common.languageSpanish">Español</button>
+          </div>
+        </div>
+        <span>Victoria & Austin</span>
+      </div>
     </div>
 
     <section class="hero">
-      <img src="/wedding/assets/gallery/web/proposal-98.jpg" alt="Victoria and Austin gallery cover image" />
+      <img src="/wedding/assets/gallery/web/proposal-98.jpg" alt="Victoria and Austin gallery cover image" data-i18n-attrs="alt:gallery.heroImageAlt" />
       <div class="hero-copy">
-        <p class="eyebrow">Photo Gallery</p>
-        <h1>Gallery</h1>
-        <p>A little collection of the moments that brought us here, and the ones we never want to forget.</p>
+        <p class="eyebrow" data-i18n="gallery.eyebrow">Photo Gallery</p>
+        <h1 data-i18n="gallery.heading">Gallery</h1>
+        <p data-i18n="gallery.intro">A little collection of the moments that brought us here, and the ones we never want to forget.</p>
       </div>
     </section>
 
     <section class="gallery-section">
       <div class="section-head">
-        <h2>Wedding Collection</h2>
-        <p>Click any image to open the larger view.</p>
+        <h2 data-i18n="gallery.sectionHeading">Wedding Collection</h2>
+        <p data-i18n="gallery.sectionIntro">Click any image to open the larger view.</p>
       </div>
       <div class="gallery-grid" id="gallery-grid"></div>
     </section>
@@ -275,9 +339,9 @@
       <div class="lightbox-controls">
         <div id="lightbox-count">1 / 1</div>
         <div class="lightbox-actions">
-          <button class="lightbox-btn" id="prev-btn" type="button">Prev</button>
-          <button class="lightbox-btn" id="next-btn" type="button">Next</button>
-          <button class="lightbox-btn" id="close-btn" type="button">Close</button>
+          <button class="lightbox-btn" id="prev-btn" type="button" data-i18n="gallery.prev">Prev</button>
+          <button class="lightbox-btn" id="next-btn" type="button" data-i18n="gallery.next">Next</button>
+          <button class="lightbox-btn" id="close-btn" type="button" data-i18n="gallery.close">Close</button>
         </div>
       </div>
       <figure class="lightbox-figure">
@@ -286,6 +350,7 @@
     </div>
   </div>
 
+  <script src="/wedding/assets/i18n.js"></script>
   <script src="/wedding/gallery/gallery-data.js"></script>
   <script>
     const galleryItems = Array.isArray(window.WEDDING_GALLERY_ITEMS) ? window.WEDDING_GALLERY_ITEMS : [];
@@ -298,19 +363,42 @@
     const closeBtn = document.getElementById('close-btn');
     let currentIndex = 0;
 
+    function getGalleryText(key, params = {}) {
+      return window.WEDDING_I18N.t(`gallery.${key}`, params);
+    }
+
+    function getLocalizedValue(value) {
+      if (value && typeof value === 'object') {
+        const language = window.WEDDING_I18N.getLanguage();
+        return value[language] || value.en || '';
+      }
+      return value || '';
+    }
+
+    function getItemTitle(item) {
+      return getLocalizedValue(item.title);
+    }
+
+    function getItemAlt(item) {
+      return getLocalizedValue(item.alt);
+    }
+
     function renderGallery() {
+      grid.innerHTML = '';
       if (!galleryItems.length) {
-        grid.innerHTML = '<div class="empty-state">No gallery images yet. Add photos to <code>assets/gallery/web/</code> and update <code>gallery/gallery-data.js</code>.</div>';
+        grid.innerHTML = `<div class="empty-state">${getGalleryText('emptyStateHtml')}</div>`;
         return;
       }
 
       galleryItems.forEach((item, index) => {
+        const title = getItemTitle(item);
+        const alt = getItemAlt(item);
         const card = document.createElement('figure');
         card.className = 'gallery-card';
         card.innerHTML = `
-          <button class="gallery-button" type="button" aria-label="Open ${item.title}">
+          <button class="gallery-button" type="button" aria-label="${getGalleryText('openImageAria', { title })}">
             <div class="gallery-frame">
-              <img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async" />
+              <img src="${item.src}" alt="${alt}" loading="lazy" decoding="async" />
             </div>
           </button>
         `;
@@ -322,7 +410,7 @@
     function updateLightbox() {
       const item = galleryItems[currentIndex];
       lightboxImage.src = item.src;
-      lightboxImage.alt = item.alt;
+      lightboxImage.alt = getItemAlt(item);
       lightboxCount.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
     }
 
@@ -357,7 +445,12 @@
       if (event.key === 'ArrowRight') moveLightbox(1);
     });
 
-    renderGallery();
+    window.addEventListener('wedding-languagechange', () => {
+      renderGallery();
+      if (!lightbox.hidden && galleryItems.length) updateLightbox();
+    });
+
+    document.addEventListener('DOMContentLoaded', renderGallery);
   </script>
 </body>
 </html>

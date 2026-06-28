@@ -153,6 +153,55 @@
       padding:16px 18px 0;
       border-top:1px solid rgba(182, 90, 58, .14);
     }
+    .hero-toolbar{
+      display:flex;
+      justify-content:flex-end;
+      margin-bottom:14px;
+    }
+    .language-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .language-toggle-label{
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:700;
+      color:var(--muted);
+    }
+    .language-toggle-flag{
+      display:inline-flex;
+      align-items:center;
+      margin-left:6px;
+      font-size:14px;
+      line-height:1;
+    }
+    .language-toggle-buttons{
+      display:inline-flex;
+      border:1px solid rgba(182, 90, 58, .24);
+      background:rgba(255,255,255,.82);
+      box-shadow:0 10px 20px rgba(62, 42, 32, .08);
+    }
+    .language-toggle button{
+      width:auto;
+      border:0;
+      border-radius:0;
+      background:transparent;
+      color:var(--muted);
+      padding:.58rem .8rem;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      box-shadow:none;
+    }
+    .language-toggle button.is-active{
+      background:linear-gradient(180deg, rgba(182, 90, 58, .98), rgba(154, 73, 45, .96));
+      color:#fff8f2;
+    }
     .countdown-chip{
       min-width:88px;
       padding:12px 14px 10px;
@@ -613,6 +662,9 @@
       .hero-actions{
         padding:14px 14px 0;
       }
+      .hero-toolbar{
+        justify-content:center;
+      }
       .countdown-chip{
         min-width:72px;
         padding:10px 12px 8px;
@@ -678,6 +730,18 @@
       .hero-actions{
         margin:0 0 16px;
         padding:12px 0 0;
+      }
+      .hero-toolbar{
+        margin-bottom:12px;
+      }
+      .language-toggle{
+        justify-content:center;
+      }
+      .language-toggle-buttons{
+        width:100%;
+      }
+      .language-toggle button{
+        flex:1 1 0;
       }
       .countdown-chip{
         min-width:calc(50% - 6px);
@@ -809,147 +873,157 @@
     }
   </style>
 </head>
-<body>
+<body data-title-key="common.documentTitleHome">
   <main class="wrap" id="public-view">
     <section class="card">
       <div class="hero-carousel" id="hero-carousel">
-        <div class="hero-slide"><img src="/wedding/assets/hero-main.jpg" alt="Romantic wedding table setting" /></div>
+        <div class="hero-slide"><img src="/wedding/assets/hero-main.jpg" alt="Romantic wedding table setting" data-i18n-attrs="alt:home.heroImageAlt" /></div>
         <div class="hero-overlay"></div>
         <div class="hero-title">
-          <p class="muted couple-names">Nuestra Boda de Victoria A. Solis & Austin H. Lipe</p>
-          <p class="hero-date">May 29, 2027 • Aguascalientes, Mexico</p>
+          <p class="muted couple-names" data-i18n="home.coupleNames">Victoria & Austin</p>
+          <p class="hero-date" data-i18n="home.heroDate">May 29, 2027 • Aguascalientes, Mexico</p>
         </div>
-        <div class="hero-countdown" id="hero-countdown" aria-label="Countdown to wedding day">
+        <div class="hero-countdown" id="hero-countdown" aria-label="Countdown to wedding day" data-i18n-attrs="aria-label:countdown.ariaLabel">
           <div class="countdown-chip">
             <span class="countdown-value" id="countdown-days">000</span>
-            <span class="countdown-label">Days</span>
+            <span class="countdown-label" data-i18n="countdown.days">Days</span>
           </div>
           <div class="countdown-chip">
             <span class="countdown-value" id="countdown-hours">00</span>
-            <span class="countdown-label">Hours</span>
+            <span class="countdown-label" data-i18n="countdown.hours">Hours</span>
           </div>
           <div class="countdown-chip">
             <span class="countdown-value" id="countdown-minutes">00</span>
-            <span class="countdown-label">Minutes</span>
+            <span class="countdown-label" data-i18n="countdown.minutes">Minutes</span>
           </div>
           <div class="countdown-chip">
             <span class="countdown-value" id="countdown-seconds">00</span>
-            <span class="countdown-label">Seconds</span>
+            <span class="countdown-label" data-i18n="countdown.seconds">Seconds</span>
           </div>
         </div>
       </div>
       <div class="hero-actions">
-        <nav class="hero-nav" aria-label="Wedding page sections">
-          <a class="hero-nav-link" href="/wedding/gallery/">Gallery</a>
-          <a class="hero-nav-link" href="#wedding-weekend">Weekend</a>
-          <a class="hero-nav-link" href="#transportation">Travel</a>
-          <a class="hero-nav-link" href="https://www.amazon.com/wedding/guest-view/3TPUBBZJK6UXY" target="_blank" rel="noreferrer">Registry</a>
-          <a class="hero-nav-link" href="#rsvp">RSVP</a>
+        <div class="hero-toolbar">
+          <div class="language-toggle" data-language-toggle>
+            <span class="language-toggle-label" data-i18n="common.languageLabel">Language</span>
+            <span class="language-toggle-flag" data-language-flag aria-hidden="true">🇺🇸</span>
+            <div class="language-toggle-buttons">
+              <button type="button" data-lang="en" data-i18n="common.languageEnglish">English</button>
+              <button type="button" data-lang="es" data-i18n="common.languageSpanish">Español</button>
+            </div>
+          </div>
+        </div>
+        <nav class="hero-nav" aria-label="Wedding page sections" data-i18n-attrs="aria-label:home.navAriaLabel">
+          <a class="hero-nav-link" href="/wedding/gallery/" data-i18n="home.navGallery">Gallery</a>
+          <a class="hero-nav-link" href="#wedding-weekend" data-i18n="home.navWeekend">Weekend</a>
+          <a class="hero-nav-link" href="#transportation" data-i18n="home.navTravel">Travel</a>
+          <a class="hero-nav-link" href="https://www.amazon.com/wedding/guest-view/3TPUBBZJK6UXY" target="_blank" rel="noreferrer" data-i18n="home.navRegistry">Registry</a>
+          <a class="hero-nav-link" href="#rsvp" data-i18n="home.navRsvp">RSVP</a>
         </nav>
       </div>
 
-      <p class="muted">We’re so excited to celebrate with you. This page has the latest updates for the wedding and Aguascalientes travel details.</p>
+      <p class="muted" data-i18n="home.intro">We’re so excited to celebrate with you. This page has the latest updates for the wedding and Aguascalientes travel details.</p>
 
       <div class="section-break" aria-hidden="true"><span></span></div>
-      <h2>Locations</h2>
+      <h2 data-i18n="home.locationsHeading">Locations</h2>
       <div class="location-list">
         <article class="location-card">
-          <span class="location-label">Nuptial Mass</span>
+          <span class="location-label" data-i18n="home.locationMassLabel">Nuptial Mass</span>
           <h3>Catedral de Aguascalientes</h3>
-          <p>The Nuptial Mass will be held here at 2:00pm.</p>
-          <p class="location-meta"><strong>Parking:</strong> This is the best parking nearby: <a class="location-link" href="https://maps.app.goo.gl/FQJDmRRY8GfZZZhb7" target="_blank" rel="noreferrer">View nearby parking</a></p>
-          <p class="location-meta"><strong>Price:</strong> Parking garage is about 20 pesos per hour.</p>
+          <p data-i18n="home.locationMassBody">The Nuptial Mass will be held here at 2:00pm.</p>
+          <p class="location-meta" data-i18n-html="home.locationMassParkingHtml"><strong>Parking:</strong> This is the best parking nearby: <a class="location-link" href="https://maps.app.goo.gl/FQJDmRRY8GfZZZhb7" target="_blank" rel="noreferrer">View nearby parking</a></p>
+          <p class="location-meta" data-i18n-html="home.locationMassPriceHtml"><strong>Price:</strong> Parking garage is about 20 pesos per hour.</p>
           <p><a class="location-link" href="https://maps.app.goo.gl/Vb6ocbELqnxih6yL6" target="_blank" rel="noreferrer">Plaza de La Patria, Gral. Ignacio Allende, Zona Centro, 20000 Aguascalientes, Ags., Mexico</a></p>
         </article>
         <article class="location-card">
-          <span class="location-label">Reception</span>
+          <span class="location-label" data-i18n="home.locationReceptionLabel">Reception</span>
           <h3>Las Palmeras</h3>
-          <p>Cocktail hour, dinner reception, cake cutting, and the send off will take place here.</p>
-          <p class="location-meta"><strong>Parking:</strong> On-site parking is available.</p>
-          <p class="location-meta"><strong>Price:</strong> Parking price is still being confirmed.</p>
+          <p data-i18n="home.locationReceptionBody">Cocktail hour, dinner reception, cake cutting, and the send off will take place here.</p>
+          <p class="location-meta" data-i18n-html="home.locationReceptionParkingHtml"><strong>Parking:</strong> On-site parking is available.</p>
+          <p class="location-meta" data-i18n-html="home.locationReceptionPriceHtml"><strong>Price:</strong> Parking price is still being confirmed.</p>
           <p><a class="location-link" href="https://maps.app.goo.gl/oxvXe5oGyMsfgB7d6" target="_blank" rel="noreferrer">Antiguo Camino a San Ignacio Km 1 San Ignacio, 20326 Aguascalientes, Ags., Mexico</a></p>
         </article>
       </div>
 
       <div class="section-break" aria-hidden="true"><span></span></div>
-      <h2 id="wedding-weekend">Wedding Day Timeline</h2>
-      <div class="weekend-timeline" aria-label="Wedding day timeline">
+      <h2 id="wedding-weekend" data-i18n="home.timelineHeading">Wedding Day Timeline</h2>
+      <div class="weekend-timeline" aria-label="Wedding day timeline" data-i18n-attrs="aria-label:home.timelineAriaLabel">
         <svg class="weekend-path" viewBox="0 0 100 420" preserveAspectRatio="none" aria-hidden="true">
           <path d="M52 8 C18 58, 84 92, 50 142 S18 226, 54 278 S86 358, 46 412" />
         </svg>
         <article class="timeline-event">
           <div class="timeline-card">
             <span class="timeline-kicker">2:00pm</span>
-            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">💍</span>Nuptial Mass</h3>
-            <p>Wedding ceremony at the Cathedral in Aguascalientes.</p>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">💍</span><span data-i18n="home.timelineMassTitle">Nuptial Mass</span></h3>
+            <p data-i18n="home.timelineMassBody">Wedding ceremony at the Cathedral in Aguascalientes.</p>
           </div>
         </article>
         <article class="timeline-event">
           <div class="timeline-card">
             <span class="timeline-kicker">3:00pm</span>
-            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">📷</span>Photo Session</h3>
-            <p>Photos with family, wedding party, and the newlyweds.</p>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">📷</span><span data-i18n="home.timelinePhotosTitle">Photo Session</span></h3>
+            <p data-i18n="home.timelinePhotosBody">Photos with family, wedding party, and the newlyweds.</p>
           </div>
         </article>
         <article class="timeline-event">
           <div class="timeline-card">
             <span class="timeline-kicker">5:30pm</span>
-            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">🥂</span>Cocktail Hour</h3>
-            <p>Drinks, music, and time to gather before dinner.</p>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">🥂</span><span data-i18n="home.timelineCocktailTitle">Cocktail Hour</span></h3>
+            <p data-i18n="home.timelineCocktailBody">Drinks, music, and time to gather before dinner.</p>
           </div>
         </article>
         <article class="timeline-event">
           <div class="timeline-card">
             <span class="timeline-kicker">6:30pm</span>
-            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">🍽</span>Dinner Reception</h3>
-            <p>Dinner and celebration with our family and friends.</p>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">🍽</span><span data-i18n="home.timelineDinnerTitle">Dinner Reception</span></h3>
+            <p data-i18n="home.timelineDinnerBody">Dinner and celebration with our family and friends.</p>
           </div>
         </article>
         <article class="timeline-event">
           <div class="timeline-card">
             <span class="timeline-kicker">11:30pm</span>
-            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">🎊</span>Farewell</h3>
-            <p>A final goodbye to close the wedding celebration.</p>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">🎊</span><span data-i18n="home.timelineFarewellTitle">Farewell</span></h3>
+            <p data-i18n="home.timelineFarewellBody">A final goodbye to close the wedding celebration.</p>
           </div>
         </article>
       </div>
-      <p class="muted">Final times and addresses will be shared directly with guests.</p>
+      <p class="muted" data-i18n="home.timelineNote">Final times and addresses will be shared directly with guests.</p>
 
       <div class="section-break" aria-hidden="true"><span></span></div>
-      <h2>Attire Guide</h2>
-      <p>We invite our guests to wear semi-formal attire for the wedding celebration.</p>
+      <h2 data-i18n="home.attireHeading">Attire Guide</h2>
+      <p data-i18n="home.attireIntro">We invite our guests to wear semi-formal attire for the wedding celebration.</p>
       <div class="attire-grid">
         <article class="attire-card">
-          <span class="attire-label">Men</span>
-          <p>Suit or sport coat (optional), dress shirt, dress pants, dress shoes</p>
+          <span class="attire-label" data-i18n="home.attireMenLabel">Men</span>
+          <p data-i18n="home.attireMenBody">Suit or sport coat (optional), dress shirt, dress pants, dress shoes</p>
         </article>
         <article class="attire-card">
-          <span class="attire-label">Women</span>
-          <p>Sundress, midi dress, jumpsuit, heels/sandals.</p>
+          <span class="attire-label" data-i18n="home.attireWomenLabel">Women</span>
+          <p data-i18n="home.attireWomenBody">Sundress, midi dress, jumpsuit, heels/sandals.</p>
         </article>
       </div>
 
       <div class="section-break" aria-hidden="true"><span></span></div>
-      <h2 id="transportation">Transportation</h2>
+      <h2 id="transportation" data-i18n="home.transportationHeading">Transportation</h2>
       <ul>
-        <li>Airport: Aguascalientes Aguascalientes Mexico airport</li>
-        <li>Transportation: Uber/taxi available in most areas</li>
-        <li>Airport distance to hotels: Aguascalientes, Aguascalientes (AGU-Licenciado Jesus Teran Peredo Intl.) - 45 min drive</li>
+        <li data-i18n="home.transportationAirport">Airport: Aguascalientes Aguascalientes Mexico airport</li>
+        <li data-i18n="home.transportationGettingAround">Transportation: Uber/taxi available in most areas</li>
+        <li data-i18n="home.transportationDistance">Airport distance to hotels: Aguascalientes, Aguascalientes (AGU-Licenciado Jesus Teran Peredo Intl.) - 45 min drive</li>
       </ul>
       <div class="section-break" aria-hidden="true"><span></span></div>
-      <h2 class="subsection-title">Hotel Accommodations</h2>
+      <h2 class="subsection-title" data-i18n="home.hotelsHeading">Hotel Accommodations</h2>
       <div class="hotel-table-wrap">
         <table class="hotel-table">
-          <caption>For your convenience rooms have been blocked in the following hotel with special wedding rates</caption>
+          <caption data-i18n="home.hotelCaption">For your convenience rooms have been blocked in the following hotel with special wedding rates</caption>
           <thead>
             <tr>
-              <th scope="col">Hotel</th>
-              <th scope="col">Address</th>
-              <th scope="col">Price Range</th>
-              <th scope="col">Breakfast</th>
-              <th scope="col">Parking</th>
-              <th scope="col">Transportation</th>
-              <th scope="col">On Site</th>
+              <th scope="col" data-i18n="home.hotelColHotel">Hotel</th>
+              <th scope="col" data-i18n="home.hotelColAddress">Address</th>
+              <th scope="col" data-i18n="home.hotelColPrice">Price Range</th>
+              <th scope="col" data-i18n="home.hotelColBreakfast">Breakfast</th>
+              <th scope="col" data-i18n="home.hotelColParking">Parking</th>
+              <th scope="col" data-i18n="home.hotelColTransport">Transportation</th>
+              <th scope="col" data-i18n="home.hotelColOnSite">On Site</th>
             </tr>
           </thead>
           <tbody>
@@ -957,19 +1031,19 @@
               <th scope="row">Quality Inn Aguascalientes</th>
               <td>Nieto 102, Aguascalientes, AGS, 20000</td>
               <td>$72-$85</td>
-              <td>Full breakfast included</td>
-              <td>Free self parking</td>
-              <td>24-hour airport shuttle on request for a surcharge</td>
-              <td>Free Wifi, restaurant, bar, air conditioning, terrace</td>
+              <td data-i18n="home.hotel1Breakfast">Full breakfast included</td>
+              <td data-i18n="home.hotel1Parking">Free self parking</td>
+              <td data-i18n="home.hotel1Transport">24-hour airport shuttle on request for a surcharge</td>
+              <td data-i18n="home.hotel1OnSite">Free Wifi, restaurant, bar, air conditioning, terrace</td>
             </tr>
             <tr>
               <th scope="row">Hotel Francia Aguascalientes</th>
               <td>Av. Fco. I Madero No. 113, Aguascalientes, AGS, 20000</td>
               <td>$65-$85</td>
-              <td>Not listed</td>
-              <td>Free self parking</td>
-              <td>Uber/taxi available nearby</td>
-              <td>Free Wifi, restaurant, bar, air conditioning</td>
+              <td data-i18n="home.hotel2Breakfast">Not listed</td>
+              <td data-i18n="home.hotel2Parking">Free self parking</td>
+              <td data-i18n="home.hotel2Transport">Uber/taxi available nearby</td>
+              <td data-i18n="home.hotel2OnSite">Free Wifi, restaurant, bar, air conditioning</td>
             </tr>
             <tr>
               <th scope="row">
@@ -977,95 +1051,95 @@
               </th>
               <td>Avenida Adolfo Lopez Mateos 320, Oriente, Aguascalientes, AGS, 20000</td>
               <td>$85-$97</td>
-              <td>Buffet breakfast for a fee (250-300 MXN)</td>
-              <td>Free self parking</td>
-              <td>Uber/taxi available nearby</td>
-              <td>Free Wifi, restaurant, bar/lounge, pool, rooftop terrace, air conditioning</td>
+              <td data-i18n="home.hotel3Breakfast">Buffet breakfast for a fee (250-300 MXN)</td>
+              <td data-i18n="home.hotel3Parking">Free self parking</td>
+              <td data-i18n="home.hotel3Transport">Uber/taxi available nearby</td>
+              <td data-i18n="home.hotel3OnSite">Free Wifi, restaurant, bar/lounge, pool, rooftop terrace, air conditioning</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <h3 class="subsection-title">What's Nearby Zona Centro</h3>
+      <h3 class="subsection-title" data-i18n="home.nearbyHeading">What's Nearby Zona Centro</h3>
       <ul>
-        <li>Plaza de la Patria - 2-5 min walk</li>
-        <li>Catedral Basilica de Nuestra Senora de la Asuncion - 3-7 min walk</li>
-        <li>Aguascalientes Government Palace - 2-3 min walk</li>
-        <li>National Museum of Death - 4-9 min walk</li>
-        <li>San Marcos Fair - 10-14 min walk</li>
-        <li>San Antonio Temple - 10-14 min walk</li>
+        <li data-i18n="home.nearby1">Plaza de la Patria - 2-5 min walk</li>
+        <li data-i18n="home.nearby2">Catedral Basilica de Nuestra Senora de la Asuncion - 3-7 min walk</li>
+        <li data-i18n="home.nearby3">Aguascalientes Government Palace - 2-3 min walk</li>
+        <li data-i18n="home.nearby4">National Museum of Death - 4-9 min walk</li>
+        <li data-i18n="home.nearby5">San Marcos Fair - 10-14 min walk</li>
+        <li data-i18n="home.nearby6">San Antonio Temple - 10-14 min walk</li>
       </ul>
-      <h3 class="subsection-title">Restaurants Close By Zona Centro</h3>
+      <h3 class="subsection-title" data-i18n="home.restaurantsHeading">Restaurants Close By Zona Centro</h3>
       <ul>
-        <li>Cafe San Marcos - 8 min walk</li>
-        <li>Manrique Restaurant - 3 min walk</li>
-        <li>Crokas Crepes - 1 min walk</li>
-        <li>KFC - 1 min walk</li>
-        <li>Bx Pizza - 1 min walk</li>
-        <li>BX Burger - 1 min walk</li>
+        <li data-i18n="home.restaurants1">Cafe San Marcos - 8 min walk</li>
+        <li data-i18n="home.restaurants2">Manrique Restaurant - 3 min walk</li>
+        <li data-i18n="home.restaurants3">Crokas Crepes - 1 min walk</li>
+        <li data-i18n="home.restaurants4">KFC - 1 min walk</li>
+        <li data-i18n="home.restaurants5">Bx Pizza - 1 min walk</li>
+        <li data-i18n="home.restaurants6">BX Burger - 1 min walk</li>
       </ul>
 
       <div class="section-break" aria-hidden="true"><span></span></div>
-      <h2 id="registry">Registry</h2>
-      <p>Your presence is the greatest gift, but if you'd like to bless us with something, you can use our Amazon registry:</p>
-      <p><a href="https://www.amazon.com/wedding/guest-view/3TPUBBZJK6UXY" target="_blank" rel="noreferrer">View Victoria & Austin's Amazon Wedding Registry</a></p>
+      <h2 id="registry" data-i18n="home.registryHeading">Registry</h2>
+      <p data-i18n="home.registryIntro">Your presence is the greatest gift, but if you'd like to bless us with something, you can use our Amazon registry:</p>
+      <p><a href="https://www.amazon.com/wedding/guest-view/3TPUBBZJK6UXY" target="_blank" rel="noreferrer" data-i18n="home.registryLink">View Victoria & Austin's Amazon Wedding Registry</a></p>
 
       <div class="section-break" aria-hidden="true"><span></span></div>
-      <h2 id="rsvp">RSVP</h2>
-      <p>Please use your personalized RSVP link you received in your invitation from Victoria or Austin.</p>
-      <p>Due to venue limitations, we are only able to host the guests listed on your invitation.</p>
+      <h2 id="rsvp" data-i18n="home.rsvpHeading">RSVP</h2>
+      <p data-i18n="home.rsvpIntro">Please use your personalized RSVP link you received in your invitation from Victoria or Austin.</p>
+      <p data-i18n="home.rsvpNote">Due to venue limitations, we are only able to host the guests listed on your invitation.</p>
 
       <div class="section-break" aria-hidden="true"><span></span></div>
-      <h2 id="faq">FAQ</h2>
+      <h2 id="faq" data-i18n="home.faqHeading">FAQ</h2>
       <div class="faq-list">
         <details class="faq-item">
-          <summary class="faq-question">Can I bring a plus one?</summary>
+          <summary class="faq-question" data-i18n="home.faq1Question">Can I bring a plus one?</summary>
           <div class="faq-answer">
-            <p>The number of guests you are allowed to bring is specified in your RSVP invite link.</p>
+            <p data-i18n="home.faq1Answer">The number of guests you are allowed to bring is specified in your RSVP invite link.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">Can I bring children?</summary>
+          <summary class="faq-question" data-i18n="home.faq2Question">Can I bring children?</summary>
           <div class="faq-answer">
-            <p>Due to venue limitations, we are only able to host the guests listed on your invitation.</p>
+            <p data-i18n="home.faq2Answer">Due to venue limitations, we are only able to host the guests listed on your invitation.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">What is the dress code?</summary>
+          <summary class="faq-question" data-i18n="home.faq3Question">What is the dress code?</summary>
           <div class="faq-answer">
-            <p>Semi-formal attire.</p>
+            <p data-i18n="home.faq3Answer">Semi-formal attire.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">Will the Nuptial Mass be in English or Spanish?</summary>
+          <summary class="faq-question" data-i18n="home.faq4Question">Will the Nuptial Mass be in English or Spanish?</summary>
           <div class="faq-answer">
-            <p>It will be a combination of both, and the priest is bilingual.</p>
+            <p data-i18n="home.faq4Answer">It will be a combination of both, and the priest is bilingual.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">Where do I park for the Nuptial Mass?</summary>
-          <div class="faq-answer">
+          <summary class="faq-question" data-i18n="home.faq5Question">Where do I park for the Nuptial Mass?</summary>
+          <div class="faq-answer" data-i18n-html="home.faq5AnswerHtml">
             <p>This is the best parking nearby: <a class="location-link" href="https://maps.app.goo.gl/FQJDmRRY8GfZZZhb7" target="_blank" rel="noreferrer">View nearby parking</a></p>
             <p>Parking garage is about 20 pesos per hour.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">Where do I park for the reception?</summary>
-          <div class="faq-answer">
+          <summary class="faq-question" data-i18n="home.faq6Question">Where do I park for the reception?</summary>
+          <div class="faq-answer" data-i18n-html="home.faq6AnswerHtml">
             <p>On-site parking is available.</p>
             <p>Parking price is still being confirmed.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">When should I show up for the Nuptial Mass?</summary>
-          <div class="faq-answer">
+          <summary class="faq-question" data-i18n="home.faq7Question">When should I show up for the Nuptial Mass?</summary>
+          <div class="faq-answer" data-i18n-html="home.faq7AnswerHtml">
             <p>We recommend arriving 15 minutes early for the Nuptial Mass at the cathedral.</p>
             <p>If you are parking in the nearby garage, please also account for about a 5 minute walk to the cathedral.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">What time does the reception end?</summary>
+          <summary class="faq-question" data-i18n="home.faq8Question">What time does the reception end?</summary>
           <div class="faq-answer">
-            <p>The Reception is from 5:30pm-11:30pm.</p>
+            <p data-i18n="home.faq8Answer">The Reception is from 5:30pm-11:30pm.</p>
           </div>
         </details>
       </div>
@@ -1074,19 +1148,22 @@
 
   <main class="wrap hidden" id="rsvp-view">
     <section class="card">
-      <h1 id="rsvp-title">RSVP</h1>
-      <p class="muted" id="rsvp-sub">Loading your invite...</p>
+      <h1 id="rsvp-title" data-i18n="rsvp.title">RSVP</h1>
+      <p class="muted" id="rsvp-sub" data-i18n="rsvp.loading">Loading your invite...</p>
       <form id="rsvp-form" class="hidden"></form>
     </section>
   </main>
 
+<script src="/wedding/assets/i18n.js"></script>
 <script>
 const SUPABASE_URL = 'https://lipeclan.com/supabase';
 const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlzcyI6InN1cGFiYXNlIiwiaWF0IjoxNzc0NDYxNDQzLCJleHAiOjE5MzIxNDE0NDN9.PetEhxDTubgy4EIWehxBxYNC1fbKDBl0LJXBaXVXuSQ';
 const headers = { apikey: ANON_KEY, Authorization: `Bearer ${ANON_KEY}` };
+let currentRsvpState = null;
 
 function qs(id){ return document.getElementById(id) }
 function showRsvp(){ qs('public-view').classList.add('hidden'); qs('rsvp-view').classList.remove('hidden'); }
+function t(key, params){ return window.WEDDING_I18N.t(key, params) }
 
 function initCountdown(){
   const countdown = qs('hero-countdown');
@@ -1133,86 +1210,120 @@ async function initRsvp(token){
     const inviteRes = await fetch(`${SUPABASE_URL}/rest/v1/invite_tokens?token=eq.${encodeURIComponent(token)}&select=token,household_id,household_name,group_id,group_name,active&limit=1`, { headers });
     const inviteData = await inviteRes.json();
     const invite = inviteData[0];
-    if (!invite || invite.active === false) throw new Error('Invalid or inactive RSVP link.');
+    if (!invite || invite.active === false) throw new Error(t('rsvp.invalidInvite'));
 
     const householdId = invite.household_id || invite.group_id;
-    const householdName = invite.household_name || invite.group_name || 'Your Household';
-    if (!householdId) throw new Error('This invite is missing a household assignment.');
+    const householdName = invite.household_name || invite.group_name || t('rsvp.householdFallback');
+    if (!householdId) throw new Error(t('rsvp.missingHousehold'));
 
-    qs('rsvp-title').textContent = `RSVP • ${householdName}`;
+    qs('rsvp-title').textContent = t('rsvp.titleWithHousehold', { householdName });
 
     const guestsRes = await fetch(`${SUPABASE_URL}/rest/v1/guests?household_id=eq.${encodeURIComponent(householdId)}&select=id,full_name&order=id.asc`, { headers });
     const guests = await guestsRes.json();
-    if (!guests.length) throw new Error('No guests found for this invite.');
+    if (!guests.length) throw new Error(t('rsvp.noGuests'));
 
     const rsvpRes = await fetch(`${SUPABASE_URL}/rest/v1/rsvps?select=guest_id,status&guest_id=in.(${guests.map(g=>g.id).join(',')})`, { headers });
     const existing = await rsvpRes.json();
     const existingMap = Object.fromEntries(existing.map(r => [r.guest_id, r.status]));
 
-    const form = qs('rsvp-form');
-    form.innerHTML = '';
+    currentRsvpState = { householdName, guests, existingMap, messageType: null };
+    renderRsvpForm();
+    sub.textContent = t('rsvp.inviteSubtitle');
+  } catch (err) {
+    currentRsvpState = null;
+    qs('rsvp-title').textContent = t('rsvp.title');
+    sub.textContent = err.message || t('rsvp.loadError');
+  }
+}
 
-    guests.forEach(g => {
-      const wrap = document.createElement('div');
-      wrap.className = 'guest-row';
-      wrap.innerHTML = `<label class="guest-label"><strong>${g.full_name}</strong></label>
+function renderRsvpForm(){
+  if (!currentRsvpState) return;
+  const { householdName, guests, existingMap, messageType } = currentRsvpState;
+  const form = qs('rsvp-form');
+  const sub = qs('rsvp-sub');
+  qs('rsvp-title').textContent = t('rsvp.titleWithHousehold', { householdName });
+  sub.textContent = t('rsvp.inviteSubtitle');
+  form.innerHTML = '';
+
+  guests.forEach(g => {
+    const wrap = document.createElement('div');
+    wrap.className = 'guest-row';
+    wrap.innerHTML = `<label class="guest-label"><strong>${g.full_name}</strong></label>
         <div class="select-wrap">
           <select name="${g.id}">
-            <option value="Pending">Still deciding</option>
-            <option value="Yes">Yes, attending 🎉</option>
-            <option value="No">No, can't attend</option>
+            <option value="Pending">${t('rsvp.selectPending')}</option>
+            <option value="Yes">${t('rsvp.selectYes')}</option>
+            <option value="No">${t('rsvp.selectNo')}</option>
           </select>
         </div>`;
-      form.appendChild(wrap);
-      wrap.querySelector('select').value = existingMap[g.id] || 'Pending';
+    form.appendChild(wrap);
+    wrap.querySelector('select').value = existingMap[g.id] || 'Pending';
+  });
+
+  const btn = document.createElement('button');
+  btn.type = 'submit';
+  btn.textContent = t('rsvp.saveButton');
+  form.appendChild(btn);
+
+  const msg = document.createElement('div');
+  msg.className = messageType ? 'status-note' : 'status-note hidden';
+  form.appendChild(msg);
+
+  if (messageType === 'yes') {
+    msg.className = 'status-note success';
+    msg.innerHTML = t('rsvp.successYesHtml');
+  } else if (messageType === 'no') {
+    msg.className = 'status-note soft';
+    msg.innerHTML = t('rsvp.successNoHtml');
+  } else if (messageType === 'error') {
+    msg.className = 'status-note soft';
+    msg.innerHTML = t('rsvp.saveErrorHtml');
+  } else if (messageType === 'pending') {
+    msg.className = 'status-note';
+    msg.innerHTML = t('rsvp.successPendingHtml');
+  }
+
+  form.onsubmit = async (e) => {
+    e.preventDefault();
+    const rows = guests.map(g => {
+      const value = form.querySelector(`select[name="${g.id}"]`).value;
+      return { guest_id: g.id, status: value, response_status: value, meal_choice: 'Pending' };
+    });
+    const save = await fetch(`${SUPABASE_URL}/rest/v1/rsvps`, {
+      method: 'POST',
+      headers: { ...headers, 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' },
+      body: JSON.stringify(rows)
+    });
+    if (!save.ok) {
+      currentRsvpState.messageType = 'error';
+      msg.className = 'status-note soft';
+      msg.innerHTML = t('rsvp.saveErrorHtml');
+      return;
+    }
+
+    const yesCount = rows.filter(r => r.status === 'Yes').length;
+    const noCount = rows.filter(r => r.status === 'No').length;
+
+    guests.forEach(g => {
+      existingMap[g.id] = form.querySelector(`select[name="${g.id}"]`).value;
     });
 
-    const btn = document.createElement('button');
-    btn.type = 'submit';
-    btn.textContent = 'Save RSVP';
-    form.appendChild(btn);
+    if (yesCount > 0) {
+      currentRsvpState.messageType = 'yes';
+      msg.className = 'status-note success';
+      msg.innerHTML = t('rsvp.successYesHtml');
+    } else if (noCount > 0) {
+      currentRsvpState.messageType = 'no';
+      msg.className = 'status-note soft';
+      msg.innerHTML = t('rsvp.successNoHtml');
+    } else {
+      currentRsvpState.messageType = 'pending';
+      msg.className = 'status-note';
+      msg.innerHTML = t('rsvp.successPendingHtml');
+    }
+  };
 
-    const msg = document.createElement('div');
-    msg.className = 'status-note hidden';
-    form.appendChild(msg);
-
-    form.onsubmit = async (e) => {
-      e.preventDefault();
-      const rows = guests.map(g => {
-        const value = form.querySelector(`select[name="${g.id}"]`).value;
-        return { guest_id: g.id, status: value, response_status: value, meal_choice: 'Pending' };
-      });
-      const save = await fetch(`${SUPABASE_URL}/rest/v1/rsvps`, {
-        method: 'POST',
-        headers: { ...headers, 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' },
-        body: JSON.stringify(rows)
-      });
-      if (!save.ok) {
-        msg.className = 'status-note soft';
-        msg.innerHTML = 'Could not save RSVP right now. Please try again in a moment.';
-        return;
-      }
-
-      const yesCount = rows.filter(r => r.status === 'Yes').length;
-      const noCount = rows.filter(r => r.status === 'No').length;
-
-      if (yesCount > 0) {
-        msg.className = 'status-note success';
-        msg.innerHTML = `Amazing — we can’t wait to celebrate with you! 🎉<br/>For the latest wedding updates and Aguascalientes travel info, use the Wedding Home Page.<br/><a class="quick-link" href="/wedding/">Go to the Wedding Home Page →</a>`;
-      } else if (noCount > 0) {
-        msg.className = 'status-note soft';
-        msg.innerHTML = `We’ll miss you and appreciate you letting us know 💛<br/><a class="quick-link" href="/wedding/">Wedding updates and details →</a>`;
-      } else {
-        msg.className = 'status-note';
-        msg.innerHTML = `Saved! You can update your RSVP anytime from this same link.<br/><a class="quick-link" href="/wedding/">Wedding home page →</a>`;
-      }
-    };
-
-    form.classList.remove('hidden');
-    sub.textContent = 'Please submit one response per person listed below. The Wedding Home Page has the latest updates on the wedding and Aguascalientes travel details.';
-  } catch (err) {
-    sub.textContent = err.message || 'Could not load RSVP.';
-  }
+  form.classList.remove('hidden');
 }
 
 const url = new URL(window.location.href);
@@ -1226,6 +1337,9 @@ if (queryToken) {
   const token = path.split(marker)[1].replace(/\/$/, '');
   if (token) initRsvp(token);
 }
+window.addEventListener('wedding-languagechange', () => {
+  if (currentRsvpState) renderRsvpForm();
+});
 </script>
 </body>
 </html>
