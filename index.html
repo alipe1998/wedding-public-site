@@ -229,8 +229,8 @@
     .hero-title .couple-names{
       color:#fff;
       text-shadow:0 2px 8px rgba(0,0,0,.35);
-      max-width:none;
-      white-space:nowrap;
+      max-width:min(92%, 18ch);
+      white-space:normal;
     }
     p, li{font-size:20px}
     ul{
@@ -345,6 +345,85 @@
     }
     .location-link:hover{
       text-decoration:underline;
+    }
+    .attire-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:16px;
+      margin:1rem 0 1.6rem;
+    }
+    .attire-card{
+      padding:1rem 1.05rem;
+      background:linear-gradient(180deg, rgba(255,250,245,.98), rgba(248,239,227,.92));
+      box-shadow:0 14px 28px rgba(88, 58, 38, .08);
+    }
+    .attire-label{
+      display:block;
+      margin-bottom:.3rem;
+      color:var(--terracotta);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .attire-card h3{
+      margin:0 0 .45rem;
+      font-size:28px;
+      line-height:1.1;
+    }
+    .attire-card p{
+      margin:.15rem 0 .55rem;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.45;
+    }
+    .faq-list{
+      display:grid;
+      gap:12px;
+      margin:1rem 0 0;
+    }
+    .faq-item{
+      background:linear-gradient(180deg, rgba(255,250,245,.98), rgba(248,239,227,.92));
+      box-shadow:0 14px 28px rgba(88, 58, 38, .08);
+      text-align:left;
+      overflow:hidden;
+    }
+    .faq-question{
+      position:relative;
+      display:block;
+      padding:1rem 3.25rem 1rem 1.05rem;
+      cursor:pointer;
+      list-style:none;
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:28px;
+      line-height:1.1;
+      color:#000;
+    }
+    .faq-question::-webkit-details-marker{
+      display:none;
+    }
+    .faq-question::after{
+      content:"+";
+      position:absolute;
+      right:1.05rem;
+      top:50%;
+      transform:translateY(-50%);
+      color:var(--terracotta);
+      font-size:28px;
+      font-weight:700;
+      line-height:1;
+    }
+    .faq-item[open] .faq-question::after{
+      content:"−";
+    }
+    .faq-answer{
+      padding:0 1.05rem 1rem;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.45;
+    }
+    .faq-answer p{
+      margin:.15rem 0 .55rem;
     }
     .weekend-timeline{
       position:relative;
@@ -624,7 +703,7 @@
         line-height:1;
       }
       .hero-title .couple-names{
-        max-width:none;
+        max-width:min(100%, 12ch);
       }
       h1{font-size:32px}
       h2{font-size:26px}
@@ -638,10 +717,27 @@
         gap:12px;
         margin:1rem 0 1.2rem;
       }
+      .attire-grid{
+        grid-template-columns:1fr;
+        gap:12px;
+        margin:1rem 0 1.2rem;
+      }
       .location-card h3{
         font-size:24px;
       }
       .location-card p{
+        font-size:16px;
+      }
+      .attire-card h3{
+        font-size:24px;
+      }
+      .attire-card p{
+        font-size:16px;
+      }
+      .faq-question{
+        font-size:24px;
+      }
+      .faq-answer{
         font-size:16px;
       }
       .hotel-table caption{
@@ -720,7 +816,7 @@
         <div class="hero-slide"><img src="/wedding/assets/hero-main.jpg" alt="Romantic wedding table setting" /></div>
         <div class="hero-overlay"></div>
         <div class="hero-title">
-          <p class="muted couple-names">Nuestra Boda Victoria & Austin</p>
+          <p class="muted couple-names">Nuestra Boda de Victoria A. Solis & Austin H. Lipe</p>
           <p class="hero-date">May 29, 2027 • Aguascalientes, Mexico</p>
         </div>
         <div class="hero-countdown" id="hero-countdown" aria-label="Countdown to wedding day">
@@ -758,9 +854,9 @@
       <h2>Locations</h2>
       <div class="location-list">
         <article class="location-card">
-          <span class="location-label">Ceremony</span>
+          <span class="location-label">Nuptial Mass</span>
           <h3>Catedral de Aguascalientes</h3>
-          <p>The wedding ceremony will be held here at 2:00pm.</p>
+          <p>The Nuptial Mass will be held here at 2:00pm.</p>
           <p class="location-meta"><strong>Parking:</strong> This is the best parking nearby: <a class="location-link" href="https://maps.app.goo.gl/FQJDmRRY8GfZZZhb7" target="_blank" rel="noreferrer">View nearby parking</a></p>
           <p class="location-meta"><strong>Price:</strong> Parking garage is about 20 pesos per hour.</p>
           <p><a class="location-link" href="https://maps.app.goo.gl/Vb6ocbELqnxih6yL6" target="_blank" rel="noreferrer">Plaza de La Patria, Gral. Ignacio Allende, Zona Centro, 20000 Aguascalientes, Ags., Mexico</a></p>
@@ -784,7 +880,7 @@
         <article class="timeline-event">
           <div class="timeline-card">
             <span class="timeline-kicker">2:00pm</span>
-            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">💍</span>Wedding Ceremony</h3>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">💍</span>Nuptial Mass</h3>
             <p>Wedding ceremony at the Cathedral in Aguascalientes.</p>
           </div>
         </article>
@@ -822,6 +918,16 @@
       <div class="section-break" aria-hidden="true"><span></span></div>
       <h2>Attire Guide</h2>
       <p>We invite our guests to wear semi-formal attire for the wedding celebration.</p>
+      <div class="attire-grid">
+        <article class="attire-card">
+          <span class="attire-label">Men</span>
+          <p>Suit or sport coat (optional), dress shirt, dress pants, dress shoes</p>
+        </article>
+        <article class="attire-card">
+          <span class="attire-label">Women</span>
+          <p>Sundress, midi dress, jumpsuit, heels/sandals.</p>
+        </article>
+      </div>
 
       <div class="section-break" aria-hidden="true"><span></span></div>
       <h2 id="transportation">Transportation</h2>
@@ -868,7 +974,6 @@
             <tr>
               <th scope="row">
                 Hotel Real Plaza Aguascalientes
-                <span class="hotel-note">Call ahead to confirm room availability.</span>
               </th>
               <td>Avenida Adolfo Lopez Mateos 320, Oriente, Aguascalientes, AGS, 20000</td>
               <td>$85-$97</td>
@@ -906,7 +1011,64 @@
 
       <div class="section-break" aria-hidden="true"><span></span></div>
       <h2 id="rsvp">RSVP</h2>
-      <p>Please use your personalized RSVP link from Victoria or Austin.</p>
+      <p>Please use your personalized RSVP link you received in your invitation from Victoria or Austin.</p>
+      <p>Due to venue limitations, we are only able to host the guests listed on your invitation.</p>
+
+      <div class="section-break" aria-hidden="true"><span></span></div>
+      <h2 id="faq">FAQ</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">Can I bring a plus one?</summary>
+          <div class="faq-answer">
+            <p>The number of guests you are allowed to bring is specified in your RSVP invite link.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Can I bring children?</summary>
+          <div class="faq-answer">
+            <p>Due to venue limitations, we are only able to host the guests listed on your invitation.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What is the dress code?</summary>
+          <div class="faq-answer">
+            <p>Semi-formal attire.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Will the Nuptial Mass be in English or Spanish?</summary>
+          <div class="faq-answer">
+            <p>It will be a combination of both, and the priest is bilingual.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Where do I park for the Nuptial Mass?</summary>
+          <div class="faq-answer">
+            <p>This is the best parking nearby: <a class="location-link" href="https://maps.app.goo.gl/FQJDmRRY8GfZZZhb7" target="_blank" rel="noreferrer">View nearby parking</a></p>
+            <p>Parking garage is about 20 pesos per hour.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Where do I park for the reception?</summary>
+          <div class="faq-answer">
+            <p>On-site parking is available.</p>
+            <p>Parking price is still being confirmed.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">When should I show up for the Nuptial Mass?</summary>
+          <div class="faq-answer">
+            <p>We recommend arriving 15 minutes early for the Nuptial Mass at the cathedral.</p>
+            <p>If you are parking in the nearby garage, please also account for about a 5 minute walk to the cathedral.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What time does the reception end?</summary>
+          <div class="faq-answer">
+            <p>The Reception is from 5:30pm-11:30pm.</p>
+          </div>
+        </details>
+      </div>
     </section>
   </main>
 
