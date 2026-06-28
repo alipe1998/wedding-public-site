@@ -231,23 +231,231 @@
     li{margin-bottom:.35rem}
     a{overflow-wrap:anywhere}
     .subsection-title{margin-top:1.2rem}
-    .hotel-card{
-      margin:1.2rem 0;
-      padding:1rem 1.1rem;
+    .hotel-table-wrap{
+      margin:1.2rem 0 1.6rem;
+      overflow-x:auto;
       border:1px solid #e6d6c6;
       background:#fffaf5;
+      box-shadow:0 14px 34px rgba(88, 58, 38, .08);
     }
-    .hotel-card p{margin:.45rem 0}
-    .hotel-card ul{margin:.4rem 0 0}
+    .hotel-table{
+      width:100%;
+      min-width:820px;
+      border-collapse:collapse;
+    }
+    .hotel-table caption{
+      padding:1rem 1.1rem .3rem;
+      text-align:left;
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:26px;
+      font-weight:700;
+      color:#000;
+    }
+    .hotel-table th,
+    .hotel-table td{
+      padding:1rem;
+      text-align:left;
+      vertical-align:top;
+      border-top:1px solid #eadccf;
+      font-size:17px;
+      line-height:1.45;
+    }
+    .hotel-table thead th{
+      border-top:0;
+      background:linear-gradient(180deg, #fff8f1, #f4e6d7);
+      color:#3d3129;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .hotel-table tbody th{
+      width:22%;
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:24px;
+      line-height:1.15;
+      color:#000;
+    }
+    .hotel-table tbody tr:nth-child(even){
+      background:rgba(248,239,227,.58);
+    }
+    .hotel-table .hotel-note{
+      display:block;
+      margin-top:.45rem;
+      color:var(--terracotta);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      font-size:14px;
+      font-weight:700;
+      line-height:1.35;
+    }
+    .location-list{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:16px;
+      margin:1rem 0 1.6rem;
+    }
+    .location-card{
+      padding:1rem 1.05rem;
+      background:linear-gradient(180deg, rgba(255,250,245,.98), rgba(248,239,227,.92));
+      box-shadow:0 14px 28px rgba(88, 58, 38, .08);
+    }
+    .location-label{
+      display:block;
+      margin-bottom:.3rem;
+      color:var(--terracotta);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .location-card h3{
+      margin:0 0 .35rem;
+      font-size:28px;
+      line-height:1.1;
+    }
+    .location-card p{
+      margin:.15rem 0 .55rem;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.45;
+    }
+    .location-meta{
+      margin:.35rem 0;
+      color:#4d4038;
+      font-size:16px;
+      line-height:1.45;
+    }
+    .location-meta strong{
+      color:#000;
+    }
+    .location-link{
+      color:var(--deep-green);
+      font-weight:700;
+      text-decoration:none;
+    }
+    .location-link:hover{
+      text-decoration:underline;
+    }
+    .weekend-timeline{
+      position:relative;
+      margin:1.8rem 0 .8rem;
+      padding:1rem 0 1.4rem;
+    }
+    .weekend-path{
+      position:absolute;
+      inset:20px 11% 20px 11%;
+      width:78%;
+      height:calc(100% - 40px);
+      color:rgba(182,90,58,.52);
+      pointer-events:none;
+      overflow:visible;
+    }
+    .weekend-path path{
+      fill:none;
+      stroke:currentColor;
+      stroke-width:3;
+      stroke-linecap:round;
+    }
+    .timeline-event{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+      align-items:center;
+      min-height:150px;
+      margin:-.25rem 0;
+    }
+    .timeline-event:nth-of-type(odd) .timeline-card{
+      grid-column:1;
+      justify-self:end;
+      margin-right:clamp(42px, 8vw, 108px);
+    }
+    .timeline-event:nth-of-type(even) .timeline-card{
+      grid-column:2;
+      justify-self:start;
+      margin-left:clamp(42px, 8vw, 108px);
+    }
+    .timeline-card{
+      width:min(100%, 390px);
+      padding:1rem 1.05rem;
+      background:linear-gradient(180deg, rgba(255,250,245,.98), rgba(248,239,227,.92));
+      box-shadow:0 16px 30px rgba(88, 58, 38, .09);
+    }
+    .timeline-kicker{
+      display:block;
+      margin-bottom:.25rem;
+      color:var(--terracotta);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .timeline-title{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      margin:0;
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:28px;
+      line-height:1.1;
+      color:#000;
+    }
+    .timeline-icon{
+      display:inline-grid;
+      place-items:center;
+      width:50px;
+      height:50px;
+      flex:0 0 50px;
+      font-size:34px;
+      line-height:1;
+    }
+    .timeline-card p{
+      margin:.55rem 0 0;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.45;
+    }
     .hidden{display:none}
-    .section-divider{
-      height:14px;margin:-2px 0 12px;
-      background:
-        linear-gradient(135deg, rgba(182,90,58,.22) 25%, transparent 25%) 0 0/16px 16px,
-        linear-gradient(225deg, rgba(47,143,149,.22) 25%, transparent 25%) 0 0/16px 16px;
-      border-radius:999px;
-      opacity:.75;
+    .section-break{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      margin:2.6rem 0 1.6rem;
+      color:var(--terracotta);
     }
+    .section-break::before,
+    .section-break::after{
+      content:"";
+      flex:1 1 0;
+      height:1px;
+      background:
+        linear-gradient(90deg, rgba(182,90,58,0), rgba(182,90,58,.62) 20%, rgba(216,154,43,.85) 52%, rgba(47,143,149,.62) 80%, rgba(47,143,149,0));
+    }
+    .section-break span{
+      position:relative;
+      display:inline-block;
+      width:20px;
+      height:20px;
+      border:1.5px solid currentColor;
+      transform:rotate(45deg);
+      background:linear-gradient(135deg, rgba(255,255,255,.96), rgba(239,223,207,.9));
+      box-shadow:0 0 0 6px rgba(248,239,227,.96);
+    }
+    .section-break span::before,
+    .section-break span::after{
+      content:"";
+      position:absolute;
+      top:50%;
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:var(--turquoise);
+      transform:translateY(-50%) rotate(-45deg);
+      opacity:.9;
+    }
+    .section-break span::before{right:calc(100% + 10px)}
+    .section-break span::after{left:calc(100% + 10px)}
     .guest-row{margin-bottom:12px;padding:12px;border:1px solid #eadccf;border-radius:12px;background:#fffcf9}
     .guest-label{display:block;margin-bottom:8px}
     .select-wrap{position:relative;max-width:300px}
@@ -401,6 +609,74 @@
       h2{font-size:26px}
       h3{font-size:22px}
       p, li{font-size:17px}
+      .hotel-table{
+        min-width:720px;
+      }
+      .location-list{
+        grid-template-columns:1fr;
+        gap:12px;
+        margin:1rem 0 1.2rem;
+      }
+      .location-card h3{
+        font-size:24px;
+      }
+      .location-card p{
+        font-size:16px;
+      }
+      .hotel-table caption{
+        font-size:22px;
+      }
+      .hotel-table th,
+      .hotel-table td{
+        padding:.85rem;
+        font-size:15px;
+      }
+      .hotel-table tbody th{
+        font-size:20px;
+      }
+      .weekend-timeline{
+        margin:1.3rem 0 .4rem;
+        padding-left:28px;
+      }
+      .weekend-path{
+        inset:18px auto 18px 8px;
+        width:22px;
+        height:calc(100% - 36px);
+      }
+      .weekend-path path{
+        stroke-width:3;
+      }
+      .timeline-event{
+        display:block;
+        min-height:0;
+        margin:0 0 1rem;
+      }
+      .timeline-event:nth-of-type(odd) .timeline-card,
+      .timeline-event:nth-of-type(even) .timeline-card{
+        width:100%;
+        margin:0;
+      }
+      .timeline-title{
+        font-size:24px;
+      }
+      .timeline-icon{
+        width:42px;
+        height:42px;
+        flex-basis:42px;
+        font-size:28px;
+      }
+      .timeline-card p{
+        font-size:16px;
+      }
+      .section-break{
+        margin:2.1rem 0 1.3rem;
+        gap:10px;
+      }
+      .section-break span{
+        width:16px;
+        height:16px;
+        box-shadow:0 0 0 4px rgba(248,239,227,.96);
+      }
       .select-wrap{max-width:none}
       button{
         width:100%;
@@ -446,8 +722,8 @@
         </div>
         <nav class="hero-nav" aria-label="Wedding page sections">
           <a class="hero-nav-link" href="/wedding/gallery/">Gallery</a>
-          <a class="hero-nav-link" href="#travel-notes">Travel</a>
           <a class="hero-nav-link" href="#wedding-weekend">Weekend</a>
+          <a class="hero-nav-link" href="#travel-notes">Travel</a>
           <a class="hero-nav-link" href="https://www.amazon.com/wedding/guest-view/3TPUBBZJK6UXY" target="_blank" rel="noreferrer">Registry</a>
           <a class="hero-nav-link" href="#rsvp">RSVP</a>
         </nav>
@@ -455,54 +731,134 @@
 
       <p class="muted">We’re so excited to celebrate with you. This page has the latest updates for the wedding and Aguascalientes travel details.</p>
 
+      <div class="section-break" aria-hidden="true"><span></span></div>
+      <h2>Locations</h2>
+      <div class="location-list">
+        <article class="location-card">
+          <span class="location-label">Ceremony</span>
+          <h3>Catedral de Aguascalientes</h3>
+          <p>The wedding ceremony will be held here at 2:00pm.</p>
+          <p class="location-meta"><strong>Parking:</strong> This is the best parking nearby: <a class="location-link" href="https://maps.app.goo.gl/FQJDmRRY8GfZZZhb7" target="_blank" rel="noreferrer">View nearby parking</a></p>
+          <p class="location-meta"><strong>Price:</strong> Parking garage is about 20 pesos per hour.</p>
+          <p><a class="location-link" href="https://maps.app.goo.gl/Vb6ocbELqnxih6yL6" target="_blank" rel="noreferrer">Plaza de La Patria, Gral. Ignacio Allende, Zona Centro, 20000 Aguascalientes, Ags., Mexico</a></p>
+        </article>
+        <article class="location-card">
+          <span class="location-label">Reception</span>
+          <h3>Las Palmeras</h3>
+          <p>Cocktail hour, dinner reception, cake cutting, and the send off will take place here.</p>
+          <p class="location-meta"><strong>Parking:</strong> On-site parking is available.</p>
+          <p class="location-meta"><strong>Price:</strong> Parking price is still being confirmed.</p>
+          <p><a class="location-link" href="https://maps.app.goo.gl/oxvXe5oGyMsfgB7d6" target="_blank" rel="noreferrer">Antiguo Camino a San Ignacio Km 1 San Ignacio, 20326 Aguascalientes, Ags., Mexico</a></p>
+        </article>
+      </div>
+
+      <div class="section-break" aria-hidden="true"><span></span></div>
+      <h2 id="wedding-weekend">Wedding Day Timeline</h2>
+      <div class="weekend-timeline" aria-label="Wedding day timeline">
+        <svg class="weekend-path" viewBox="0 0 100 420" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M52 8 C18 58, 84 92, 50 142 S18 226, 54 278 S86 358, 46 412" />
+        </svg>
+        <article class="timeline-event">
+          <div class="timeline-card">
+            <span class="timeline-kicker">2:00pm</span>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">💍</span>Wedding Ceremony</h3>
+            <p>Wedding ceremony at the Cathedral in Aguascalientes.</p>
+          </div>
+        </article>
+        <article class="timeline-event">
+          <div class="timeline-card">
+            <span class="timeline-kicker">3:00pm</span>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">📷</span>Photo Session</h3>
+            <p>Photos with family, wedding party, and the newlyweds.</p>
+          </div>
+        </article>
+        <article class="timeline-event">
+          <div class="timeline-card">
+            <span class="timeline-kicker">5:30pm</span>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">🥂</span>Cocktail Hour</h3>
+            <p>Drinks, music, and time to gather before dinner.</p>
+          </div>
+        </article>
+        <article class="timeline-event">
+          <div class="timeline-card">
+            <span class="timeline-kicker">6:30pm</span>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">🍽</span>Dinner Reception</h3>
+            <p>Dinner and celebration with our family and friends.</p>
+          </div>
+        </article>
+        <article class="timeline-event">
+          <div class="timeline-card">
+            <span class="timeline-kicker">Evening</span>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">🍰</span>Cake Cutting</h3>
+            <p>A sweet moment together during the reception.</p>
+          </div>
+        </article>
+        <article class="timeline-event">
+          <div class="timeline-card">
+            <span class="timeline-kicker">11:30pm</span>
+            <h3 class="timeline-title"><span class="timeline-icon" aria-hidden="true">🎊</span>Farewell</h3>
+            <p>A final goodbye to close the wedding celebration.</p>
+          </div>
+        </article>
+      </div>
+      <p class="muted">Final times and addresses will be shared directly with guests.</p>
+
+      <div class="section-break" aria-hidden="true"><span></span></div>
       <h2 id="travel-notes">Aguascalientes Travel Notes</h2>
       <ul>
         <li>Airport: Aguascalientes Aguascalientes Mexico airport</li>
         <li>Transportation: Uber/taxi available in most areas</li>
         <li>Weather: warm days and cooler evenings — bring layers</li>
       </ul>
-      <h3 class="subsection-title">Hotel Options</h3>
-      <div class="hotel-card">
-        <h3>Quality Inn Aguascalientes</h3>
-        <p><strong>Address:</strong> Nieto 102, Aguascalientes, AGS, 20000</p>
-        <p><strong>Price range:</strong> $72-$85</p>
-        <p><strong>Amenities:</strong></p>
-        <ul>
-          <li>Free Wifi</li>
-          <li>Free self parking on site</li>
-          <li>24-hour roundtrip airport shuttle on request for a surcharge</li>
-          <li>Full breakfast included</li>
-          <li>Restaurant and bar on site</li>
-          <li>Air conditioning</li>
-          <li>Terrace</li>
-        </ul>
-      </div>
-      <div class="hotel-card">
-        <h3>Hotel Francia Aguascalientes</h3>
-        <p><strong>Address:</strong> Av. Fco. I Madero No. 113, Aguascalientes, AGS, 20000</p>
-        <p><strong>Price range:</strong> $65-$85</p>
-        <p><strong>Amenities:</strong></p>
-        <ul>
-          <li>Free Wifi</li>
-          <li>Free self parking on site</li>
-          <li>Restaurant and bar on site</li>
-          <li>Air conditioning</li>
-        </ul>
-      </div>
-      <div class="hotel-card">
-        <h3>Hotel Real Plaza Aguascalientes</h3>
-        <p><strong>Call ahead to confirm room availability.</strong></p>
-        <p><strong>Address:</strong> Avenida Adolfo Lopez Mateos 320, Oriente, Aguascalientes, AGS, 20000</p>
-        <p><strong>Price range:</strong> $85-$97</p>
-        <p><strong>Amenities:</strong></p>
-        <ul>
-          <li>Free Wifi</li>
-          <li>Free self parking on site</li>
-          <li>Buffet breakfast for a fee (250-300 MXN)</li>
-          <li>Bar/lounge and restaurant</li>
-          <li>Pool and rooftop terrace</li>
-          <li>Air conditioning</li>
-        </ul>
+      <div class="section-break" aria-hidden="true"><span></span></div>
+      <h2 class="subsection-title">Hotel Accomodations</h2>
+      <div class="hotel-table-wrap">
+        <table class="hotel-table">
+          <caption>For your convenience rooms have been blocked in the following hotel with special wedding rates</caption>
+          <thead>
+            <tr>
+              <th scope="col">Hotel</th>
+              <th scope="col">Address</th>
+              <th scope="col">Price Range</th>
+              <th scope="col">Breakfast</th>
+              <th scope="col">Parking</th>
+              <th scope="col">Transportation</th>
+              <th scope="col">On Site</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Quality Inn Aguascalientes</th>
+              <td>Nieto 102, Aguascalientes, AGS, 20000</td>
+              <td>$72-$85</td>
+              <td>Full breakfast included</td>
+              <td>Free self parking</td>
+              <td>24-hour airport shuttle on request for a surcharge</td>
+              <td>Free Wifi, restaurant, bar, air conditioning, terrace</td>
+            </tr>
+            <tr>
+              <th scope="row">Hotel Francia Aguascalientes</th>
+              <td>Av. Fco. I Madero No. 113, Aguascalientes, AGS, 20000</td>
+              <td>$65-$85</td>
+              <td>Not listed</td>
+              <td>Free self parking</td>
+              <td>Uber/taxi available nearby</td>
+              <td>Free Wifi, restaurant, bar, air conditioning</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Hotel Real Plaza Aguascalientes
+                <span class="hotel-note">Call ahead to confirm room availability.</span>
+              </th>
+              <td>Avenida Adolfo Lopez Mateos 320, Oriente, Aguascalientes, AGS, 20000</td>
+              <td>$85-$97</td>
+              <td>Buffet breakfast for a fee (250-300 MXN)</td>
+              <td>Free self parking</td>
+              <td>Uber/taxi available nearby</td>
+              <td>Free Wifi, restaurant, bar/lounge, pool, rooftop terrace, air conditioning</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <h3 class="subsection-title">What's Nearby Zona Centro</h3>
       <ul>
@@ -514,7 +870,7 @@
         <li>San Antonio Temple - 10-14 min walk</li>
       </ul>
       <p><strong>Airport distance from these hotels:</strong> Aguascalientes, Aguascalientes (AGU-Licenciado Jesus Teran Peredo Intl.) - 45 min drive</p>
-      <h3 class="subsection-title">Restaurants Close By</h3>
+      <h3 class="subsection-title">Restaurants Close By Zona Centro</h3>
       <ul>
         <li>Cafe San Marcos - 8 min walk</li>
         <li>Manrique Restaurant - 3 min walk</li>
@@ -524,18 +880,12 @@
         <li>BX Burger - 1 min walk</li>
       </ul>
 
-      <h2 id="wedding-weekend">Wedding Weekend</h2>
-      <ul>
-        <li>Friday: Welcome time</li>
-        <li>Saturday: Ceremony + Reception</li>
-        <li>Sunday: Farewell brunch</li>
-      </ul>
-      <p class="muted">Final times and addresses will be shared directly with guests.</p>
-
+      <div class="section-break" aria-hidden="true"><span></span></div>
       <h2 id="registry">Registry</h2>
       <p>Your presence is the greatest gift, but if you'd like to bless us with something, you can use our Amazon registry:</p>
       <p><a href="https://www.amazon.com/wedding/guest-view/3TPUBBZJK6UXY" target="_blank" rel="noreferrer">View Victoria & Austin's Amazon Wedding Registry</a></p>
 
+      <div class="section-break" aria-hidden="true"><span></span></div>
       <h2 id="rsvp">RSVP</h2>
       <p>Please use your personalized RSVP link from Victoria or Austin.</p>
     </section>
@@ -565,7 +915,7 @@ function initCountdown(){
   const hoursEl = qs('countdown-hours');
   const minutesEl = qs('countdown-minutes');
   const secondsEl = qs('countdown-seconds');
-  const targetDate = new Date('2027-05-29T12:00:00-06:00');
+  const targetDate = new Date('2027-05-29T14:00:00-06:00');
 
   function updateCountdown(){
     const now = new Date();
