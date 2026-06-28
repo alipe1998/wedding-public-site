@@ -127,6 +127,9 @@
         faq7AnswerHtml: '<p>We recommend arriving 15 minutes early for the Nuptial Mass at the cathedral.</p><p>If you are parking in the nearby garage, please also account for about a 5 minute walk to the cathedral.</p>',
         faq8Question: 'What time does the reception end?',
         faq8Answer: 'The Reception is from 5:30pm-11:30pm.'
+        ,
+        thanksBody: 'Thank you for joining us on this special day. We feel so loved by your presence and support, and we cannot wait to celebrate together in Aguascalientes.',
+        thanksImageAlt: 'Victoria and Austin engagement portrait'
       },
       gallery: {
         topbarBack: 'Back To Wedding Home',
@@ -282,6 +285,9 @@
         faq7AnswerHtml: '<p>Recomendamos llegar 15 minutos antes de la misa nupcial en la catedral.</p><p>Si se estacionan en el estacionamiento cercano, por favor consideren tambien unos 5 minutos caminando hasta la catedral.</p>',
         faq8Question: 'A que hora termina la recepcion?',
         faq8Answer: 'La recepcion es de 5:30pm a 11:30pm.'
+        ,
+        thanksBody: 'Gracias por acompannarnos en este dia tan especial. Nos sentimos muy queridos por su presencia y su apoyo, y estamos emocionados de celebrar juntos en Aguascalientes.',
+        thanksImageAlt: 'Retrato de compromiso de Victoria y Austin'
       },
       gallery: {
         topbarBack: 'Volver al inicio de la boda',
