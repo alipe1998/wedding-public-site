@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/wedding/assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="/wedding/assets/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/wedding/assets/favicon-16x16.png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/wedding/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Victoria & Austin Save the Date</title>
+  <style>
+    :root{--terracotta:#b65a3a;--coral:#d9785f;--turquoise:#2f8f95;--deep-green:#285744;--marigold:#d89a2b;--cream:#f8efe3;--sand:#efdfcf;--ink:#16110d;--muted:#6f6259;--shadow:0 18px 50px rgba(46,31,18,.14)}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top,rgba(217,120,95,.18),transparent 30%),linear-gradient(180deg,#fcf5eb 0%,var(--cream) 100%)}
+    a{color:inherit}
+    .page{width:min(1100px,calc(100% - 32px));margin:0 auto;padding:22px 0 48px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;color:var(--muted)}
+    .topbar a{text-decoration:none;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:13px}
+    .topbar-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+    .language-toggle{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .language-toggle-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+    .language-toggle-flag{display:inline-flex;margin-left:6px;font-size:14px;line-height:1}
+    .language-toggle-buttons{display:inline-flex;border:1px solid rgba(182,90,58,.28);background:rgba(255,255,255,.78)}
+    .language-toggle button{border:0;background:transparent;color:var(--muted);padding:.55rem .75rem;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+    .language-toggle button.is-active{background:var(--terracotta);color:#fff8f2}
+    .hero{position:relative;overflow:hidden;min-height:300px;border:1px solid rgba(182,90,58,.18);background:#e7d8c8;box-shadow:var(--shadow)}
+    .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.48))}
+    .hero-copy{position:relative;z-index:1;min-height:300px;padding:36px clamp(22px,4vw,44px);display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+    .eyebrow{margin:0 0 6px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.92}
+    h1{margin:0;font-family:"Great Vibes",cursive;font-size:clamp(54px,9vw,92px);line-height:1;font-weight:400}
+    .hero-copy p:last-child{max-width:680px;margin:10px 0 0;font-size:clamp(18px,2vw,22px);line-height:1.5}
+    .video-section{margin-top:18px;padding:clamp(20px,4vw,40px);text-align:center;background:rgba(255,253,249,.92);border:1px solid var(--sand);box-shadow:var(--shadow)}
+    .video-section h2{margin:0;color:var(--deep-green);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(30px,5vw,44px);line-height:1}
+    .video-frame{margin:22px auto 0;max-width:820px;padding:8px;background:linear-gradient(135deg,var(--terracotta),var(--marigold),var(--turquoise));box-shadow:0 14px 32px rgba(46,31,18,.16)}
+    video{display:block;width:100%;height:auto;background:#17110e;aspect-ratio:16 / 9}
+    .home-button{display:inline-block;margin-top:24px;padding:.8rem 1.2rem;border:1px solid var(--terracotta);border-radius:999px;background:linear-gradient(90deg,var(--terracotta),var(--coral));color:#fff;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:filter .18s ease,transform .18s ease}
+    .home-button:hover{filter:brightness(1.06);transform:translateY(-1px)}
+    .home-button:focus-visible,.topbar a:focus-visible,.language-toggle button:focus-visible{outline:3px solid rgba(47,143,149,.55);outline-offset:3px}
+    @media(max-width:900px){.page{width:min(100%,calc(100% - 16px));padding-top:12px}.topbar{align-items:flex-start;flex-direction:column}.topbar-actions{width:100%;justify-content:space-between}}
+    @media(max-width:520px){.video-section{padding:18px 12px}.video-frame{margin-top:18px;padding:5px}}
+  </style>
+</head>
+<body data-title-key="common.documentTitleSaveTheDate">
+  <div class="page">
+    <div class="topbar">
+      <a href="/wedding/" data-i18n="saveTheDate.topbarBack">Back To Wedding Home</a>
+      <div class="topbar-actions">
+        <div class="language-toggle" data-language-toggle>
+          <span class="language-toggle-label" data-i18n="common.languageLabel">Language</span>
+          <span class="language-toggle-flag" data-language-flag aria-hidden="true">US</span>
+          <div class="language-toggle-buttons">
+            <button type="button" data-lang="en" data-i18n="common.languageEnglish">English</button>
+            <button type="button" data-lang="es" data-i18n="common.languageSpanish">Espanol</button>
+          </div>
+        </div>
+        <span>Victoria &amp; Austin</span>
+      </div>
+    </div>
+    <section class="hero">
+      <img src="/wedding/assets/hero-main.jpg" alt="Romantic wedding table setting" />
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="saveTheDate.eyebrow">A little preview</p>
+        <h1 data-i18n="saveTheDate.heading">Save the Date</h1>
+        <p data-i18n="saveTheDate.intro">We cannot wait to celebrate with you. Enjoy this little preview, and keep May 29, 2027 reserved for our wedding in Aguascalientes.</p>
+      </div>
+    </section>
+    <section class="video-section" aria-labelledby="video-heading">
+      <h2 id="video-heading" data-i18n="saveTheDate.videoTitle">Victoria and Austin Save the Date video</h2>
+      <div class="video-frame">
+        <video controls playsinline preload="metadata" poster="/wedding/assets/hero-main.jpg">
+          <source src="/wedding/assets/save-the-date.mp4" type="video/mp4" />
+          <span data-i18n="saveTheDate.videoFallback">Your browser does not support video playback. Please try opening this page in a modern browser.</span>
+        </video>
+      </div>
+      <a class="home-button" href="/wedding/" data-i18n="saveTheDate.bottomBack">Return To Wedding Home</a>
+    </section>
+  </div>
+  <script src="/wedding/assets/i18n.js"></script>
+</body>
+</html>
