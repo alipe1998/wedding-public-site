@@ -148,7 +148,6 @@
       },
       saveTheDate: {
         topbarBack: 'Back To Wedding Home',
-        eyebrow: 'A little preview',
         heading: 'Victoria & Austin Save the Date',
         intro: 'We cannot wait to celebrate with you. Enjoy this little preview, and keep May 29, 2027 reserved for our wedding in Aguascalientes, Mexico.',
         videoFallback: 'Your browser does not support video playback. Please try opening this page in a modern browser.',
