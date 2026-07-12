@@ -17,7 +17,7 @@
     body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top,rgba(217,120,95,.18),transparent 30%),linear-gradient(180deg,#fcf5eb 0%,var(--cream) 100%)}
     a{color:inherit}
     .page{width:min(1100px,calc(100% - 32px));margin:0 auto;padding:22px 0 48px}
-    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;color:var(--muted)}
+    .topbar{display:flex;justify-content:flex-end;align-items:center;gap:16px;margin-bottom:18px;color:var(--muted);text-align:right}
     .topbar a{text-decoration:none;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:13px}
     .topbar-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
     .language-toggle{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -29,7 +29,7 @@
     .hero{position:relative;overflow:hidden;min-height:300px;border:1px solid rgba(182,90,58,.18);background:#e7d8c8;box-shadow:var(--shadow)}
     .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.48))}
-    .hero-copy{position:relative;z-index:1;min-height:300px;padding:36px clamp(22px,4vw,44px);display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+    .hero-copy{position:relative;z-index:1;min-height:300px;padding:36px clamp(22px,4vw,44px);display:flex;flex-direction:column;justify-content:flex-end;align-items:center;color:#fff;text-align:center}
     .eyebrow{margin:0 0 6px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.92}
     h1{margin:0;font-family:"Great Vibes",cursive;font-size:clamp(54px,9vw,92px);line-height:1;font-weight:400}
     .hero-copy p:last-child{max-width:680px;margin:10px 0 0;font-size:clamp(18px,2vw,22px);line-height:1.5}
@@ -40,14 +40,13 @@
     .home-button{display:inline-block;margin-top:24px;padding:.8rem 1.2rem;border:1px solid var(--terracotta);border-radius:999px;background:linear-gradient(90deg,var(--terracotta),var(--coral));color:#fff;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:filter .18s ease,transform .18s ease}
     .home-button:hover{filter:brightness(1.06);transform:translateY(-1px)}
     .home-button:focus-visible,.topbar a:focus-visible,.language-toggle button:focus-visible{outline:3px solid rgba(47,143,149,.55);outline-offset:3px}
-    @media(max-width:900px){.page{width:min(100%,calc(100% - 16px));padding-top:12px}.topbar{align-items:flex-start;flex-direction:column}.topbar-actions{width:100%;justify-content:space-between}}
+    @media(max-width:900px){.page{width:min(100%,calc(100% - 16px));padding-top:12px}.topbar-actions{width:100%;justify-content:flex-end}}
     @media(max-width:520px){.video-section{padding:18px 12px}.video-frame{margin-top:18px;padding:5px}}
   </style>
 </head>
 <body data-title-key="common.documentTitleSaveTheDate">
   <div class="page">
     <div class="topbar">
-      <a href="/wedding/" data-i18n="saveTheDate.topbarBack">Back To Wedding Home</a>
       <div class="topbar-actions">
         <div class="language-toggle" data-language-toggle>
           <span class="language-toggle-label" data-i18n="common.languageLabel">Language</span>
@@ -57,19 +56,17 @@
             <button type="button" data-lang="es" data-i18n="common.languageSpanish">Espanol</button>
           </div>
         </div>
-        <span>Victoria &amp; Austin</span>
       </div>
     </div>
     <section class="hero">
       <img src="/wedding/assets/hero-main.jpg" alt="Romantic wedding table setting" />
       <div class="hero-copy">
         <p class="eyebrow" data-i18n="saveTheDate.eyebrow">A little preview</p>
-        <h1 data-i18n="saveTheDate.heading">Save the Date</h1>
-        <p data-i18n="saveTheDate.intro">We cannot wait to celebrate with you. Enjoy this little preview, and keep May 29, 2027 reserved for our wedding in Aguascalientes.</p>
+        <h1 data-i18n="saveTheDate.heading">Victoria &amp; Austin Save the Date</h1>
+        <p data-i18n="saveTheDate.intro">We cannot wait to celebrate with you. Enjoy this little preview, and keep May 29, 2027 reserved for our wedding in Aguascalientes, Mexico.</p>
       </div>
     </section>
-    <section class="video-section" aria-labelledby="video-heading">
-      <h2 id="video-heading" data-i18n="saveTheDate.videoTitle">Victoria and Austin Save the Date video</h2>
+    <section class="video-section">
       <div class="video-frame">
         <video controls playsinline preload="metadata" poster="/wedding/assets/hero-main.jpg">
           <source src="/wedding/assets/save-the-date.mp4" type="video/mp4" />
