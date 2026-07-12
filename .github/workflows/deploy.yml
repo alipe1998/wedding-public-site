@@ -55,3 +55,10 @@ jobs:
 
       - name: Verify public site
         run: curl -I https://lipeclan.com/wedding/
+
+      - name: Verify Save the Date page and video
+        run: |
+          curl -fsSI https://lipeclan.com/wedding/save-the-date/
+          curl -fsSI https://lipeclan.com/wedding/save-the-date/index.html
+          curl -fsSI https://lipeclan.com/wedding/assets/save-the-date.mp4
+          curl -fsSL https://lipeclan.com/wedding/save-the-date/ | grep -q SaveTheDate
