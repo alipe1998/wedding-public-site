@@ -58,7 +58,7 @@ jobs:
 
       - name: Verify Save the Date page and video
         run: |
-          curl -fsSI https://lipeclan.com/wedding/save-the-date/
           curl -fsSI https://lipeclan.com/wedding/save-the-date/index.html
           curl -fsSI https://lipeclan.com/wedding/assets/save-the-date.mp4
-          curl -fsSL https://lipeclan.com/wedding/save-the-date/ | grep -q SaveTheDate
+          curl -fsSL https://lipeclan.com/wedding/save-the-date/index.html -o /tmp/save-the-date.html
+          grep -q SaveTheDate /tmp/save-the-date.html
