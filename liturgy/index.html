@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/wedding/assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="/wedding/assets/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/wedding/assets/favicon-16x16.png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/wedding/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <title>Victoria & Austin Nuptial Mass Liturgy</title>
+  <style>
+    :root{--terracotta:#b65a3a;--deep-green:#285744;--cream:#f8efe3;--sand:#efdfcf;--ink:#000;--muted:#6f6259}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:linear-gradient(180deg,#fbf3e8 0%,var(--cream) 100%)}
+    .page{width:min(960px,calc(100% - 32px));margin:0 auto;padding:22px 0 48px}
+    .topbar{display:flex;justify-content:flex-end;align-items:center;gap:16px;margin-bottom:18px;color:var(--muted);text-align:right}
+    .language-toggle{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}.language-toggle-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}.language-toggle-flag{font-size:14px;line-height:1}.language-toggle-buttons{display:inline-flex;border:1px solid rgba(182,90,58,.28);background:rgba(255,255,255,.78)}.language-toggle button{border:0;background:transparent;color:var(--muted);padding:.55rem .75rem;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}.language-toggle button.is-active{background:var(--terracotta);color:#fff8f2}
+    .hero{padding:clamp(36px,7vw,68px) clamp(22px,5vw,58px);text-align:center;background:linear-gradient(135deg,rgba(40,87,68,.96),rgba(182,90,58,.94)),url('/wedding/assets/hero-main.jpg') center/cover;border:1px solid rgba(182,90,58,.2);color:#fff}
+    .eyebrow{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.hero h1{margin:0;font-family:"Great Vibes",cursive;font-size:clamp(54px,9vw,92px);font-weight:400;line-height:1}.hero p:last-child{max-width:680px;margin:14px auto 0;font-size:18px;line-height:1.55}
+    main{padding:clamp(22px,5vw,48px);background:rgba(255,253,249,.94);border:1px solid var(--sand)}
+    h2{margin:34px 0 14px;color:var(--deep-green);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(30px,5vw,44px);line-height:1}h2:first-child{margin-top:0}
+    .section-list,.reading-list{margin:0;padding:0;list-style:none}.section-list{display:grid;gap:8px}.section-list li,.reading-list li{padding:13px 16px;background:linear-gradient(180deg,#fffaf5,#f8efe3);border-left:3px solid var(--terracotta)}
+    .reading-list{display:grid;gap:10px}.reading-list li{display:grid;gap:4px}.reading-list strong{font-family:"Cormorant Garamond",Georgia,serif;font-size:24px}.reading-list span{color:var(--muted)}
+    .note{margin:34px 0 0;padding:16px 18px;border:1px solid rgba(182,90,58,.25);background:#fff8f1;color:var(--muted);line-height:1.5}.home-button{display:inline-block;margin-top:26px;padding:.8rem 1.2rem;border:1px solid var(--terracotta);border-radius:999px;background:var(--terracotta);color:#fff;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.home-button:hover{filter:brightness(1.06)}
+    @media(max-width:520px){.page{width:min(100%,calc(100% - 16px));padding-top:12px}main{padding:22px 16px}.topbar{justify-content:center}}
+  </style>
+</head>
+<body data-title-key="common.documentTitleLiturgy">
+  <div class="page">
+    <div class="topbar">
+      <div class="language-toggle" data-language-toggle>
+        <span class="language-toggle-label" data-i18n="common.languageLabel">Language</span>
+        <span class="language-toggle-flag" data-language-flag aria-hidden="true">US</span>
+        <div class="language-toggle-buttons">
+          <button type="button" data-lang="en" data-i18n="common.languageEnglish">English</button>
+          <button type="button" data-lang="es" data-i18n="common.languageSpanish">Español</button>
+        </div>
+      </div>
+    </div>
+    <header class="hero">
+      <p class="eyebrow" data-i18n="liturgy.eyebrow">May 29, 2027 · Aguascalientes, Mexico</p>
+      <h1 data-i18n="liturgy.heading">Nuptial Mass Liturgy</h1>
+      <p data-i18n="liturgy.intro">We look forward to praying and celebrating with you. The readings and music selections will be shared here once they are finalized.</p>
+    </header>
+    <main>
+      <h2 data-i18n="liturgy.orderHeading">Order of the Mass</h2>
+
+      <h2 data-i18n="liturgy.introRitesHeading">Introductory Rites</h2>
+      <ul class="section-list" data-i18n-list="liturgy.introRitesItems"></ul>
+
+      <h2 data-i18n="liturgy.wordHeading">Liturgy of the Word</h2>
+      <ul class="reading-list">
+        <li><strong data-i18n="liturgy.firstReadingLabel">First Reading</strong><span data-i18n="liturgy.firstReadingValue">Reading to be announced</span></li>
+        <li><strong data-i18n="liturgy.psalmLabel">Responsorial Psalm</strong><span data-i18n="liturgy.psalmValue">Psalm to be announced</span></li>
+        <li><strong data-i18n="liturgy.secondReadingLabel">Second Reading</strong><span data-i18n="liturgy.secondReadingValue">Reading to be announced</span></li>
+        <li><strong data-i18n="liturgy.gospelLabel">Gospel</strong><span data-i18n="liturgy.gospelValue">Gospel to be announced</span></li>
+        <li><strong data-i18n="liturgy.homilyLabel">Homily</strong></li>
+        <li><strong data-i18n="liturgy.prayerLabel">Universal Prayer</strong></li>
+      </ul>
+
+      <h2 data-i18n="liturgy.marriageHeading">Rite of Marriage</h2>
+      <ul class="section-list" data-i18n-list="liturgy.marriageItems"></ul>
+
+      <h2 data-i18n="liturgy.eucharistHeading">Liturgy of the Eucharist</h2>
+      <ul class="section-list" data-i18n-list="liturgy.eucharistItems"></ul>
+
+      <h2 data-i18n="liturgy.concludingHeading">Concluding Rites</h2>
+      <ul class="section-list" data-i18n-list="liturgy.concludingItems"></ul>
+
+      <p class="note" data-i18n="liturgy.readingsNote">Full readings, psalm responses, and music selections will be added here soon.</p>
+      <a class="home-button" href="/wedding/" data-i18n="liturgy.backHome">Back to Wedding Home</a>
+    </main>
+  </div>
+  <script src="/wedding/assets/i18n.js"></script>
+  <script>
+    function renderLiturgyLists() {
+      document.querySelectorAll('[data-i18n-list]').forEach((list) => {
+        const value = window.WEDDING_I18N.t(list.getAttribute('data-i18n-list'));
+        list.replaceChildren(...value.split('|').map((item) => {
+          const row = document.createElement('li');
+          row.textContent = item;
+          return row;
+        }));
+      });
+    }
+    document.addEventListener('DOMContentLoaded', renderLiturgyLists);
+    window.addEventListener('wedding-languagechange', renderLiturgyLists);
+  </script>
+</body>
+</html>
