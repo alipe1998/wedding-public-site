@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 15" role="img" aria-label="Mexico flag">
+  <path fill="#006847" d="M0 0h7.34v15H0z"/>
+  <path fill="#fff" d="M7.33 0h7.34v15H7.33z"/>
+  <path fill="#ce1126" d="M14.66 0H22v15h-7.34z"/>
+  <circle cx="11" cy="7.5" r="1.35" fill="#8c6b31"/>
+  <path d="M9.8 8.1c.7.7 1.7.7 2.4 0" fill="none" stroke="#006847" stroke-width=".35"/>
+</svg>

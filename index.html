@@ -175,11 +175,13 @@
       color:var(--muted);
     }
     .language-toggle-flag{
-      display:inline-flex;
-      align-items:center;
+      display:block;
       margin-left:6px;
-      font-size:14px;
-      line-height:1;
+      width:22px;
+      height:15px;
+      object-fit:cover;
+      border-radius:1px;
+      box-shadow:0 0 0 1px rgba(62, 42, 32, .18);
     }
     .language-toggle-buttons{
       display:inline-flex;
@@ -936,7 +938,7 @@
         <div class="hero-toolbar">
           <div class="language-toggle" data-language-toggle>
             <span class="language-toggle-label" data-i18n="common.languageLabel">Language</span>
-            <span class="language-toggle-flag" data-language-flag aria-hidden="true">🇺🇸</span>
+            <img class="language-toggle-flag" data-language-flag src="/wedding/assets/flag-us.svg" alt="" aria-hidden="true" />
             <div class="language-toggle-buttons">
               <button type="button" data-lang="en" data-i18n="common.languageEnglish">English</button>
               <button type="button" data-lang="es" data-i18n="common.languageSpanish">Español</button>
@@ -1040,9 +1042,8 @@
       <div class="section-break" aria-hidden="true"><span></span></div>
       <h2 id="transportation" data-i18n="home.transportationHeading">Transportation</h2>
       <ul>
-        <li data-i18n="home.transportationAirport">Airport: Aguascalientes Aguascalientes Mexico airport</li>
-        <li data-i18n="home.transportationGettingAround">Transportation: Uber/taxi available in most areas</li>
-        <li data-i18n="home.transportationDistance">Airport distance to hotels: Aguascalientes, Aguascalientes (AGU-Licenciado Jesus Teran Peredo Intl.) - 45 min drive</li>
+        <li data-i18n-html="home.transportationAirportHtml">✈️ Airport: Aeropuerto International de Aguascalientes — <a class="location-link" href="https://maps.app.goo.gl/qabmxnW9hZhS8LKe6" target="_blank" rel="noreferrer">Carretera Panamericana Km 22, Peñuelas, 20340 Aguascalientes, Ags., Mexico</a></li>
+        <li data-i18n="home.transportationGettingAround">🚕 Transportation: Uber/taxi available in most areas</li>
       </ul>
       <div class="section-break" aria-hidden="true"><span></span></div>
       <h2 class="subsection-title" data-i18n="home.hotelsHeading">Hotel Accommodations</h2>
@@ -1093,10 +1094,12 @@
           </tbody>
         </table>
       </div>
+      <p class="muted" data-i18n="home.transportationDistance">Airport distance to recommended hotels in Zona Centro — 45 min drive</p>
+      <p class="muted" data-i18n="home.hotelsDistance">Recommended hotels are about 15–20 min from the wedding venue</p>
       <h3 class="subsection-title nearby-section-heading" data-i18n="home.nearbyHeading">What's Nearby Zona Centro</h3>
       <ul>
         <li data-i18n="home.nearby1">Plaza de la Patria - 2-5 min walk</li>
-        <li data-i18n="home.nearby2">Catedral Basilica de Nuestra Senora de la Asuncion - 3-7 min walk</li>
+        <li data-i18n="home.nearby2">Catedral de Aguascalientes - 3-7 min walk (Our Wedding Location 👰🤵)</li>
         <li data-i18n="home.nearby3">Aguascalientes Government Palace - 2-3 min walk</li>
         <li data-i18n="home.nearby4">National Museum of Death - 4-9 min walk</li>
         <li data-i18n="home.nearby5">San Marcos Fair - 10-14 min walk</li>

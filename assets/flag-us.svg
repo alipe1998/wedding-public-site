@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 15" role="img" aria-label="United States flag">
+  <path fill="#fff" d="M0 0h22v15H0z"/>
+  <path fill="#b22234" d="M0 0h22v1.154H0zm0 2.308h22v1.154H0zm0 2.308h22v1.154H0zm0 2.307h22v1.154H0zm0 2.308h22v1.154H0zm0 2.308h22V15H0z"/>
+  <path fill="#3c3b6e" d="M0 0h9.9v8.077H0z"/>
+  <g fill="#fff">
+    <circle cx="1.1" cy="1" r=".28"/><circle cx="2.7" cy="1" r=".28"/><circle cx="4.3" cy="1" r=".28"/><circle cx="5.9" cy="1" r=".28"/><circle cx="7.5" cy="1" r=".28"/>
+    <circle cx="1.9" cy="2" r=".28"/><circle cx="3.5" cy="2" r=".28"/><circle cx="5.1" cy="2" r=".28"/><circle cx="6.7" cy="2" r=".28"/><circle cx="8.3" cy="2" r=".28"/>
+    <circle cx="1.1" cy="3" r=".28"/><circle cx="2.7" cy="3" r=".28"/><circle cx="4.3" cy="3" r=".28"/><circle cx="5.9" cy="3" r=".28"/><circle cx="7.5" cy="3" r=".28"/>
+    <circle cx="1.9" cy="4" r=".28"/><circle cx="3.5" cy="4" r=".28"/><circle cx="5.1" cy="4" r=".28"/><circle cx="6.7" cy="4" r=".28"/><circle cx="8.3" cy="4" r=".28"/>
+    <circle cx="1.1" cy="5" r=".28"/><circle cx="2.7" cy="5" r=".28"/><circle cx="4.3" cy="5" r=".28"/><circle cx="5.9" cy="5" r=".28"/><circle cx="7.5" cy="5" r=".28"/>
+  </g>
+</svg>
