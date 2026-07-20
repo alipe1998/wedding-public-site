@@ -181,6 +181,8 @@
         heading: 'Victoria & Austin Save the Date',
         intro: 'We cannot wait to celebrate with you. Enjoy this little preview, and keep May 29, 2027 reserved for our wedding in Aguascalientes, Mexico.',
         videoFallback: 'Your browser does not support video playback. Please try opening this page in a modern browser.',
+        addressSurvey: 'Thank you for celebrating with us! As we prepare for our wedding, we would love to make sure we have your most up-to-date mailing address so we can send your formal invitation when the time comes.',
+        addressSurveyLink: 'Share your mailing address',
         bottomBack: 'Go to Our Wedding Website'
       },
       rsvp: {
@@ -379,6 +381,8 @@
         heading: 'Victoria y Austin: Reserva la fecha',
         intro: 'Nos emociona mucho celebrar con ustedes. Disfruten este pequeño adelanto y reserven el 29 de mayo de 2027 para nuestra boda en Aguascalientes, México.',
         videoFallback: 'Su navegador no admite la reproducción de video. Intenten abrir esta página en un navegador moderno.',
+        addressSurvey: '¡Gracias por celebrar con nosotros! Mientras nos preparamos para nuestra boda, queremos asegurarnos de tener su dirección postal más actualizada para poder enviarles su invitación formal cuando llegue el momento.',
+        addressSurveyLink: 'Compartan su dirección postal',
         bottomBack: 'Ir a nuestro sitio web de la boda'
       },
       rsvp: {

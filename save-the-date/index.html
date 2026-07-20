@@ -37,6 +37,9 @@
     .video-section h2{margin:0;color:var(--deep-green);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(30px,5vw,44px);line-height:1}
     .video-frame{margin:22px auto 0;max-width:820px;padding:8px;background:linear-gradient(135deg,var(--terracotta),var(--marigold),var(--turquoise));box-shadow:0 14px 32px rgba(46,31,18,.16)}
     video{display:block;width:100%;height:auto;background:#17110e;aspect-ratio:16 / 9}
+    .address-survey{max-width:700px;margin:24px auto 0;color:var(--muted);font-size:16px;line-height:1.6}
+    .address-survey p{margin:0}
+    .survey-link{display:inline-block;margin-top:14px;color:var(--deep-green);font-weight:700}
     .home-button{display:inline-block;margin-top:24px;padding:.8rem 1.2rem;border:1px solid var(--terracotta);border-radius:999px;background:linear-gradient(90deg,var(--terracotta),var(--coral));color:#fff;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:filter .18s ease,transform .18s ease}
     .home-button:hover{filter:brightness(1.06);transform:translateY(-1px)}
     .home-button:focus-visible,.topbar a:focus-visible,.language-toggle button:focus-visible{outline:3px solid rgba(47,143,149,.55);outline-offset:3px}
@@ -71,6 +74,10 @@
           <source src="/wedding/assets/save-the-date.mp4" type="video/mp4" />
           <span data-i18n="saveTheDate.videoFallback">Your browser does not support video playback. Please try opening this page in a modern browser.</span>
         </video>
+      </div>
+      <div class="address-survey">
+        <p data-i18n="saveTheDate.addressSurvey">Thank you for celebrating with us! As we prepare for our wedding, we would love to make sure we have your most up-to-date mailing address so we can send your formal invitation when the time comes.</p>
+        <a class="survey-link" href="https://forms.gle/JJFKMCpiGGgJiFSY9" target="_blank" rel="noreferrer" data-i18n="saveTheDate.addressSurveyLink">Share your mailing address</a>
       </div>
       <a class="home-button" href="/wedding/" data-i18n="saveTheDate.bottomBack">Return To Wedding Home</a>
     </section>
