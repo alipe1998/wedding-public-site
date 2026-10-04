@@ -400,6 +400,99 @@
     .location-link:hover{
       text-decoration:underline;
     }
+    .hotel-map-link{
+      color:var(--deep-green);
+      text-decoration:underline;
+      text-decoration-color:rgba(40, 87, 68, .45);
+      text-underline-offset:.16em;
+    }
+    .hotel-map-link:hover,
+    .hotel-map-link:focus-visible{
+      color:var(--terracotta);
+      text-decoration-color:currentColor;
+    }
+    .nearby-groups{
+      display:grid;
+      gap:1.15rem;
+      margin:1.15rem 0 1.6rem;
+      text-align:left;
+    }
+    .nearby-group{min-width:0}
+    .nearby-section-heading{
+      margin:.2rem 0 .65rem;
+      color:var(--deep-green);
+      font-size:clamp(19px, 2vw, 23px);
+      text-align:left;
+      text-decoration:none;
+      text-underline-offset:0;
+    }
+    .nearby-card-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:10px;
+    }
+    .nearby-card{
+      min-width:0;
+      padding:.85rem .95rem;
+      border:1px solid #e6d6c6;
+      border-radius:12px;
+      background:linear-gradient(145deg, rgba(255,250,245,.98), rgba(248,239,227,.88));
+      box-shadow:0 8px 20px rgba(88, 58, 38, .055);
+    }
+    .nearby-card-main{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:.7rem;
+    }
+    .nearby-place-link{
+      min-width:0;
+      color:var(--deep-green);
+      font-size:17px;
+      font-weight:750;
+      line-height:1.35;
+      text-decoration:none;
+      text-underline-offset:.16em;
+    }
+    .nearby-place-link:hover,
+    .nearby-place-link:focus-visible{
+      color:var(--terracotta);
+      text-decoration:underline;
+    }
+    .nearby-place-link::after{
+      content:"↗";
+      display:inline-block;
+      margin-left:.12rem;
+      color:var(--terracotta);
+      font-size:.78em;
+      vertical-align:top;
+    }
+    .nearby-place-link .nearby-map-mark{display:none}
+    .nearby-map-mark{
+      display:inline-block;
+      margin-left:.12rem;
+      color:var(--terracotta);
+      font-size:.78em;
+      vertical-align:top;
+    }
+    .nearby-walk{
+      flex:0 0 auto;
+      padding:.3rem .55rem;
+      border:1px solid rgba(216, 154, 43, .28);
+      border-radius:999px;
+      background:#fff5df;
+      color:#73502a;
+      font-size:12px;
+      font-weight:750;
+      line-height:1.25;
+      white-space:nowrap;
+    }
+    .nearby-card-note{
+      margin:.45rem 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.4;
+    }
     .attire-grid{
       display:grid;
       grid-template-columns:repeat(2, minmax(0, 1fr));
@@ -813,6 +906,14 @@
         gap:12px;
         margin:1rem 0 1.2rem;
       }
+      .nearby-groups{
+        gap:1rem;
+        margin:1rem 0 1.25rem;
+      }
+      .nearby-card-grid{grid-template-columns:1fr;gap:9px}
+      .nearby-card{padding:.85rem .9rem}
+      .nearby-place-link{font-size:16px}
+      .nearby-card-note{font-size:15px}
       .attire-grid{
         grid-template-columns:1fr;
         gap:12px;
@@ -1063,7 +1164,7 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">Quality Inn Aguascalientes</th>
+              <th scope="row"><a class="hotel-map-link" href="https://maps.app.goo.gl/WgHuo3gSXgUtYBUA6" target="_blank" rel="noreferrer">Quality Inn Aguascalientes <span class="nearby-map-mark" aria-hidden="true">↗</span></a></th>
               <td>Nieto 102, Aguascalientes, AGS, 20000</td>
               <td>$72-$85</td>
               <td data-i18n="home.hotel1Breakfast">Full breakfast included</td>
@@ -1072,7 +1173,7 @@
               <td data-i18n="home.hotel1OnSite">Free Wifi, restaurant, bar, air conditioning, terrace</td>
             </tr>
             <tr>
-              <th scope="row">Hotel Francia Aguascalientes</th>
+              <th scope="row"><a class="hotel-map-link" href="https://maps.app.goo.gl/Dt3wkGVf7FX7zJCH7" target="_blank" rel="noreferrer">Hotel Francia Aguascalientes <span class="nearby-map-mark" aria-hidden="true">↗</span></a></th>
               <td>Av. Fco. I Madero No. 113, Aguascalientes, AGS, 20000</td>
               <td>$65-$85</td>
               <td data-i18n="home.hotel2Breakfast">Breakfast available</td>
@@ -1082,7 +1183,7 @@
             </tr>
             <tr>
               <th scope="row">
-                Hotel Real Plaza Aguascalientes
+                <a class="hotel-map-link" href="https://maps.app.goo.gl/FduhTTfWQYk6aMYHA" target="_blank" rel="noreferrer">Hotel Real Plaza Aguascalientes <span class="nearby-map-mark" aria-hidden="true">↗</span></a>
               </th>
               <td>Avenida Adolfo Lopez Mateos 320, Oriente, Aguascalientes, AGS, 20000</td>
               <td>$85-$97</td>
@@ -1099,41 +1200,50 @@
       <p class="muted" data-i18n="home.hotelsVenueDistance">Wedding venue (Las Palmeras) distance from recommended hotels in Zona Centro — 15–20 min drive</p>
       <h3 class="subsection-title nearby-section-heading" data-i18n="home.nearbyHeading">What's Nearby Zona Centro</h3>
       <p class="muted" data-i18n="home.nearbyNote">Walking times are approximate from the main hotel area near Plaza de la Patria.</p>
-      <h4 class="subsection-title nearby-section-heading" data-i18n="home.attractionsHeading">Aguascalientes Attractions</h4>
-      <ul>
-        <li><a class="location-link" href="https://maps.app.goo.gl/ghd2kEiKwmaYhpWj7" target="_blank" rel="noreferrer" data-i18n="home.venustianoCarranza">Venustiano Carranza</a> — <span data-i18n="home.walk2">2 min walk</span><br><span class="muted" data-i18n="home.venustianoNote">If you want to experience Aguascalientes nightlife, there are lots of little street vendors and local restaurants.</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/3fk4SY6JzMtk3TzA6" target="_blank" rel="noreferrer" data-i18n="home.plazaName">Plaza de la Patria</a> — <span data-i18n="home.walk2to5">2–5 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/SsrCo5MSt4KE9fgu9" target="_blank" rel="noreferrer" data-i18n="home.governmentPalace">Aguascalientes Government Palace</a> — <span data-i18n="home.walk2to3">2–3 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/gE4LUGiqM1CiVnur5" target="_blank" rel="noreferrer" data-i18n="home.museumDeath">National Museum of Death</a> — <span data-i18n="home.walk4to9">4–9 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/3soVYvKUDjjUn7Dq9" target="_blank" rel="noreferrer" data-i18n="home.jardinSanMarcos">Jardín de San Marcos</a> — <span data-i18n="home.walk5to10">5–10 min walk</span></li>
-        <li><span data-i18n="home.sanMarcosFair">San Marcos Fair</span> — <span data-i18n="home.walk10to14">10–14 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/FP2oftFtmHtqa8nA7" target="_blank" rel="noreferrer" data-i18n="home.museumAguascalientes">Museo de Aguascalientes</a> — <span data-i18n="home.walk15">15 min walk</span></li>
-      </ul>
-      <h4 class="subsection-title nearby-section-heading" data-i18n="home.religiousSitesHeading">Churches & Temples</h4>
-      <ul>
-        <li><a class="location-link" href="https://maps.app.goo.gl/fKGqrcBpmWh7bxLk6" target="_blank" rel="noreferrer" data-i18n="home.cathedralName">Catedral de Aguascalientes (Location of Nuptial Mass)</a> — <span data-i18n="home.walk3to7">3–7 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/4o2k2DZF3PRNdST28" target="_blank" rel="noreferrer" data-i18n="home.sanMarcosTemple">Templo San Marcos</a> — <span data-i18n="home.walk8">8 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/X1P3AzwbVnjd48e78" target="_blank" rel="noreferrer" data-i18n="home.inmaculadaTemple">Templo de la Inmaculada Concepción</a> — <span data-i18n="home.walk10">10 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/VUxJRwsVu3g8niLN7" target="_blank" rel="noreferrer" data-i18n="home.sanAntonioTemple">Templo de San Antonio de Padua</a> — <span data-i18n="home.walk15">15 min walk</span></li>
-      </ul>
-      <h4 class="subsection-title nearby-section-heading" data-i18n="home.restaurantsHeading">Restaurants & Cafés</h4>
-      <ul>
-        <li><span data-i18n="home.crokasCrepes">Crokas Crepes</span> — <span data-i18n="home.walk1">1 min walk</span></li>
-        <li><span data-i18n="home.kfc">KFC</span> — <span data-i18n="home.walk1to2">1–2 min walk</span></li>
-        <li><span data-i18n="home.bxPizza">Bx Pizza</span> — <span data-i18n="home.walk1to2">1–2 min walk</span></li>
-        <li><span data-i18n="home.bxBurger">BX Burger</span> — <span data-i18n="home.walk1to2">1–2 min walk</span></li>
-        <li><span data-i18n="home.manriqueRestaurant">Manrique Restaurant</span> — <span data-i18n="home.walk3">3 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/eZNMV9CnGYnVBtiPA" target="_blank" rel="noreferrer" data-i18n="home.cafeDelCodo">Café del Codo</a> — <span data-i18n="home.walk5">5 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/GQnwvBDR4ZUthmXM6" target="_blank" rel="noreferrer" data-i18n="home.churrosHelados">Churros y Helados del Codo</a> — <span data-i18n="home.walk5">5 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/uM7TpP7MjPSa2ayE7" target="_blank" rel="noreferrer" data-i18n="home.regazziBistro">Regazzi Bistro</a> — <span data-i18n="home.walk6">6 min walk</span></li>
-        <li><span data-i18n="home.cafeSanMarcos">Café San Marcos</span> — <span data-i18n="home.walk8">8 min walk</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/eeTN5zFwRhxcEFXe7" target="_blank" rel="noreferrer" data-i18n="home.cieloClaroCafe">Cielo Claro Café</a> — <span data-i18n="home.walk10to15">10–15 min walk</span></li>
-      </ul>
-      <h4 class="subsection-title nearby-section-heading" data-i18n="home.climbingGymsHeading">Climbing Gyms</h4>
-      <ul>
-        <li><a class="location-link" href="https://maps.app.goo.gl/u3xon3oEvaUFeYGK6" target="_blank" rel="noreferrer" data-i18n="home.cruxEscaladaBoulders">Crux Escalada Boulders</a><br><span class="muted" data-i18n="home.cruxSlacklineNote">They set up slacklines at this gym.</span></li>
-        <li><a class="location-link" href="https://maps.app.goo.gl/JYGg4FXE9fwWQQfbA" target="_blank" rel="noreferrer" data-i18n="home.sanctuarioBoudler">Sanctuario Boudler</a></li>
-      </ul>
+      <div class="nearby-groups">
+        <section class="nearby-group" aria-labelledby="nearby-attractions-title">
+          <h4 id="nearby-attractions-title" class="nearby-section-heading" data-i18n="home.attractionsHeading">Aguascalientes Attractions</h4>
+          <div class="nearby-card-grid">
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/ghd2kEiKwmaYhpWj7" target="_blank" rel="noreferrer" data-i18n="home.venustianoCarranza">Venustiano Carranza<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk2">2 min walk</span></div><p class="nearby-card-note" data-i18n="home.venustianoNote">If you want to experience Aguascalientes nightlife, there are lots of little street vendors and local restaurants.</p></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/3fk4SY6JzMtk3TzA6" target="_blank" rel="noreferrer" data-i18n="home.plazaName">Plaza de la Patria<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk2to5">2–5 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/SsrCo5MSt4KE9fgu9" target="_blank" rel="noreferrer" data-i18n="home.governmentPalace">Aguascalientes Government Palace<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk2to3">2–3 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/gE4LUGiqM1CiVnur5" target="_blank" rel="noreferrer" data-i18n="home.museumDeath">National Museum of Death<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk4to9">4–9 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/3soVYvKUDjjUn7Dq9" target="_blank" rel="noreferrer" data-i18n="home.jardinSanMarcos">Jardín de San Marcos<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk5to10">5–10 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/FP2oftFtmHtqa8nA7" target="_blank" rel="noreferrer" data-i18n="home.museumAguascalientes">Museo de Aguascalientes<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk15">15 min walk</span></div></article>
+          </div>
+        </section>
+        <section class="nearby-group" aria-labelledby="nearby-religious-title">
+          <h4 id="nearby-religious-title" class="nearby-section-heading" data-i18n="home.religiousSitesHeading">Churches & Temples</h4>
+          <div class="nearby-card-grid">
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/fKGqrcBpmWh7bxLk6" target="_blank" rel="noreferrer" data-i18n="home.cathedralName">Catedral de Aguascalientes (Location of Nuptial Mass)<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk3to7">3–7 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/4o2k2DZF3PRNdST28" target="_blank" rel="noreferrer" data-i18n="home.sanMarcosTemple">Templo San Marcos<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk8">8 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/X1P3AzwbVnjd48e78" target="_blank" rel="noreferrer" data-i18n="home.inmaculadaTemple">Templo de la Inmaculada Concepción<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk10">10 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/VUxJRwsVu3g8niLN7" target="_blank" rel="noreferrer" data-i18n="home.sanAntonioTemple">Templo de San Antonio de Padua<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk15">15 min walk</span></div></article>
+          </div>
+        </section>
+        <section class="nearby-group" aria-labelledby="nearby-restaurants-title">
+          <h4 id="nearby-restaurants-title" class="nearby-section-heading" data-i18n="home.restaurantsHeading">Restaurants & Cafés</h4>
+          <div class="nearby-card-grid">
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/7Js9eSsnCsBfojNv7" target="_blank" rel="noreferrer" data-i18n="home.crokasCrepes">Crokas Crepes<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk1">1 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/KQzCb26MtV6Wh9966" target="_blank" rel="noreferrer" data-i18n="home.kfc">KFC<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk1to2">1–2 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/ER4jWjMLmvQGtyQr6" target="_blank" rel="noreferrer" data-i18n="home.bxPizza">Bx Pizza<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk1to2">1–2 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/2YTZyxs6Nknr1yqUA" target="_blank" rel="noreferrer" data-i18n="home.bxBurger">BX Burger<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk1to2">1–2 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/EmfoGDU47UwWee9LA" target="_blank" rel="noreferrer" data-i18n="home.manriqueRestaurant">Manrique Restaurant<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk3">3 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/eZNMV9CnGYnVBtiPA" target="_blank" rel="noreferrer" data-i18n="home.cafeDelCodo">Café del Codo<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk5">5 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/GQnwvBDR4ZUthmXM6" target="_blank" rel="noreferrer" data-i18n="home.churrosHelados">Churros y Helados del Codo<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk5">5 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/uM7TpP7MjPSa2ayE7" target="_blank" rel="noreferrer" data-i18n="home.regazziBistro">Regazzi Bistro<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk6">6 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/7ajqvxbzdYctr6mT6" target="_blank" rel="noreferrer" data-i18n="home.cafeSanMarcos">Café San Marcos<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk8">8 min walk</span></div></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/eeTN5zFwRhxcEFXe7" target="_blank" rel="noreferrer" data-i18n="home.cieloClaroCafe">Cielo Claro Café<span class="nearby-map-mark" aria-hidden="true">↗</span></a><span class="nearby-walk" data-i18n="home.walk10to15">10–15 min walk</span></div></article>
+          </div>
+        </section>
+        <section class="nearby-group" aria-labelledby="nearby-climbing-title">
+          <h4 id="nearby-climbing-title" class="nearby-section-heading" data-i18n="home.climbingGymsHeading">Climbing Gyms</h4>
+          <div class="nearby-card-grid">
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/u3xon3oEvaUFeYGK6" target="_blank" rel="noreferrer" data-i18n="home.cruxEscaladaBoulders">Crux Escalada Boulders<span class="nearby-map-mark" aria-hidden="true">↗</span></a></div><p class="nearby-card-note" data-i18n="home.cruxSlacklineNote">They set up slacklines at this gym.</p></article>
+            <article class="nearby-card"><div class="nearby-card-main"><a class="nearby-place-link" href="https://maps.app.goo.gl/JYGg4FXE9fwWQQfbA" target="_blank" rel="noreferrer" data-i18n="home.sanctuarioBoudler">Sanctuario Boudler<span class="nearby-map-mark" aria-hidden="true">↗</span></a></div></article>
+          </div>
+        </section>
+      </div>
 
       <div class="section-break" aria-hidden="true"><span></span></div>
       <h2 id="registry" data-i18n="home.registryHeading">Registry</h2>
