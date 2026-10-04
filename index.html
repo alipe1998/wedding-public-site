@@ -411,6 +411,7 @@
       color:var(--terracotta);
       text-decoration-color:currentColor;
     }
+    .hotel-cards{display:none}
     .nearby-groups{
       display:grid;
       gap:1.15rem;
@@ -901,6 +902,82 @@
       .hotel-table{
         min-width:720px;
       }
+      .hotel-table-wrap{display:none}
+      .hotel-cards{
+        display:grid;
+        gap:12px;
+        margin:1.1rem 0 1.45rem;
+        text-align:left;
+      }
+      .hotel-card{
+        padding:1rem;
+        border:1px solid #e6d6c6;
+        border-radius:14px;
+        background:linear-gradient(145deg, rgba(255,250,245,.98), rgba(248,239,227,.9));
+        box-shadow:0 9px 22px rgba(88, 58, 38, .07);
+      }
+      .hotel-card-header{
+        display:grid;
+        justify-items:start;
+        gap:.45rem;
+        margin-bottom:.85rem;
+      }
+      .hotel-card-name{
+        color:var(--deep-green);
+        font-family:"Cormorant Garamond",Georgia,serif;
+        font-size:25px;
+        font-weight:700;
+        line-height:1.08;
+        text-decoration:underline;
+        text-decoration-color:rgba(40, 87, 68, .4);
+        text-underline-offset:.14em;
+      }
+      .hotel-card-name:hover,
+      .hotel-card-name:focus-visible{
+        color:var(--terracotta);
+        text-decoration-color:currentColor;
+      }
+      .hotel-card-price{
+        padding:.28rem .6rem;
+        border:1px solid rgba(216, 154, 43, .28);
+        border-radius:999px;
+        background:#fff5df;
+        color:#73502a;
+        font-size:13px;
+        font-weight:750;
+        line-height:1.25;
+        white-space:nowrap;
+      }
+      .hotel-card-details{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:.75rem .85rem;
+        margin:0;
+      }
+      .hotel-card-field{
+        min-width:0;
+        padding-top:.55rem;
+        border-top:1px solid #eadccf;
+      }
+      .hotel-card-address,
+      .hotel-card-transport,
+      .hotel-card-onsite{grid-column:1 / -1}
+      .hotel-card-field dt{
+        color:var(--terracotta);
+        font-size:11px;
+        font-weight:800;
+        letter-spacing:.08em;
+        line-height:1.25;
+        text-align:left;
+        text-transform:uppercase;
+      }
+      .hotel-card-field dd{
+        margin:.2rem 0 0;
+        color:#4d4038;
+        font-size:14px;
+        line-height:1.4;
+        overflow-wrap:anywhere;
+      }
       .location-list{
         grid-template-columns:1fr;
         gap:12px;
@@ -1194,6 +1271,47 @@
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="hotel-cards">
+        <article class="hotel-card">
+          <header class="hotel-card-header">
+            <a class="hotel-card-name" href="https://maps.app.goo.gl/WgHuo3gSXgUtYBUA6" target="_blank" rel="noreferrer">Quality Inn Aguascalientes <span class="nearby-map-mark" aria-hidden="true">↗</span></a>
+            <span class="hotel-card-price">$72–$85</span>
+          </header>
+          <dl class="hotel-card-details">
+            <div class="hotel-card-field hotel-card-address"><dt data-i18n="home.hotelColAddress">Address</dt><dd>Nieto 102, Aguascalientes, AGS, 20000</dd></div>
+            <div class="hotel-card-field"><dt data-i18n="home.hotelColBreakfast">Breakfast</dt><dd data-i18n="home.hotel1Breakfast">Full breakfast included</dd></div>
+            <div class="hotel-card-field"><dt data-i18n="home.hotelColParking">Parking</dt><dd data-i18n="home.hotel1Parking">Garage parking included</dd></div>
+            <div class="hotel-card-field hotel-card-transport"><dt data-i18n="home.hotelColTransport">Transportation</dt><dd data-i18n="home.hotel1Transport">24-hour airport shuttle on request for a surcharge</dd></div>
+            <div class="hotel-card-field hotel-card-onsite"><dt data-i18n="home.hotelColOnSite">On Site</dt><dd data-i18n="home.hotel1OnSite">Free Wifi, restaurant, bar, air conditioning, terrace</dd></div>
+          </dl>
+        </article>
+        <article class="hotel-card">
+          <header class="hotel-card-header">
+            <a class="hotel-card-name" href="https://maps.app.goo.gl/Dt3wkGVf7FX7zJCH7" target="_blank" rel="noreferrer">Hotel Francia Aguascalientes <span class="nearby-map-mark" aria-hidden="true">↗</span></a>
+            <span class="hotel-card-price">$65–$85</span>
+          </header>
+          <dl class="hotel-card-details">
+            <div class="hotel-card-field hotel-card-address"><dt data-i18n="home.hotelColAddress">Address</dt><dd>Av. Fco. I Madero No. 113, Aguascalientes, AGS, 20000</dd></div>
+            <div class="hotel-card-field"><dt data-i18n="home.hotelColBreakfast">Breakfast</dt><dd data-i18n="home.hotel2Breakfast">Breakfast available</dd></div>
+            <div class="hotel-card-field"><dt data-i18n="home.hotelColParking">Parking</dt><dd data-i18n="home.hotel2Parking">Garage parking included</dd></div>
+            <div class="hotel-card-field hotel-card-transport"><dt data-i18n="home.hotelColTransport">Transportation</dt><dd data-i18n="home.hotel2Transport">Uber/taxi available nearby</dd></div>
+            <div class="hotel-card-field hotel-card-onsite"><dt data-i18n="home.hotelColOnSite">On Site</dt><dd data-i18n="home.hotel2OnSite">Free Wifi, restaurant, bar, air conditioning</dd></div>
+          </dl>
+        </article>
+        <article class="hotel-card">
+          <header class="hotel-card-header">
+            <a class="hotel-card-name" href="https://maps.app.goo.gl/FduhTTfWQYk6aMYHA" target="_blank" rel="noreferrer">Hotel Real Plaza Aguascalientes <span class="nearby-map-mark" aria-hidden="true">↗</span></a>
+            <span class="hotel-card-price">$85–$97</span>
+          </header>
+          <dl class="hotel-card-details">
+            <div class="hotel-card-field hotel-card-address"><dt data-i18n="home.hotelColAddress">Address</dt><dd>Avenida Adolfo Lopez Mateos 320, Oriente, Aguascalientes, AGS, 20000</dd></div>
+            <div class="hotel-card-field"><dt data-i18n="home.hotelColBreakfast">Breakfast</dt><dd data-i18n="home.hotel3Breakfast">Buffet breakfast for a fee (250-300 MXN)</dd></div>
+            <div class="hotel-card-field"><dt data-i18n="home.hotelColParking">Parking</dt><dd data-i18n="home.hotel3Parking">Garage parking included</dd></div>
+            <div class="hotel-card-field hotel-card-transport"><dt data-i18n="home.hotelColTransport">Transportation</dt><dd data-i18n="home.hotel3Transport">Uber/taxi available nearby</dd></div>
+            <div class="hotel-card-field hotel-card-onsite"><dt data-i18n="home.hotelColOnSite">On Site</dt><dd data-i18n="home.hotel3OnSite">Free Wifi, restaurant, bar/lounge, pool, rooftop terrace, air conditioning</dd></div>
+          </dl>
+        </article>
       </div>
       <p class="muted" data-i18n="home.transportationDistance">Airport distance to recommended hotels in Zona Centro — 45 min drive</p>
       <p class="muted" data-i18n="home.hotelsDistance">Church distance from recommended hotels in Zona Centro — 3–7 min walk</p>
